@@ -48,6 +48,41 @@
 
 .navBarContainer .bottomNav ul li {
   cursor: pointer;
+  position: relative;
+  height: inherit;
+  margin-top: 4vh;
+}
+
+.navBarContainer .bottomNav ul li div {
+  position: absolute;
+  box-shadow: 0px 0px 5px #ddd ;
+  /* border-radius: 5px; */
+  padding: 20px;
+  margin-top: 20px;
+  width: 200px;
+  z-index: 100000;
+  background-color: var(--white);
+  /* display: none; */
+}
+
+.hideDiv {
+    display: none;
+}
+
+.showDiv {
+    display: block;
+}
+
+.navBarContainer .bottomNav ul li div ol {
+    list-style-type: none;
+}
+
+.navBarContainer .bottomNav ul li div ol li {
+    margin: 10px 0px;
+}
+
+.navBarContainer .bottomNav ul li div ol li:hover {
+    color: var(--primary);
 }
 
 .navBarContainer .bottomNav ul .li {
