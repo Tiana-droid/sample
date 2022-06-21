@@ -35,7 +35,7 @@ const NavBar = (props: Props) => {
       setshowDiv("account");
     });
     account.current?.addEventListener("mouseout", () => {
-      setshowDiv("account");
+      setshowDiv("none");
     });
     category.current?.addEventListener("mouseover", () => {
       setshowDiv("category");
