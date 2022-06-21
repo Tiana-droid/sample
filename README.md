@@ -13,4 +13,4 @@
 
 This repo is hosted with netlify for *CI/CD* purposes.
 
-[Click here to view the website](https://www.example.com)
+[Click here to view the website](https://62b1a4156d06761f6226bebb--lucent-sunshine-963b43.netlify.app/)
