@@ -4,6 +4,7 @@ import LandingPage from "./pages/landingPage";
 const App = () => {
   return (
     <Router>
+      
       <Routes>
         <Route path="/" element={<LandingPage />} />
 
