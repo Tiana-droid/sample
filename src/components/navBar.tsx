@@ -56,8 +56,8 @@ const NavBar = (props: Props) => {
       <section className="topNav">
         <img src={require("../assets/logo.png")} alt="logo" />
         <p>
-          WE OFFER FREE DELIVERY SERVICES ON MONTHLY SUBSCRIPTION BASED ON YOUR
-          LOCATION
+          WE OFFER FREE DELIVERY SERVICES ON MONTHLY SUBSCRIPTION BASED
+          ON YOUR LOCATION
         </p>
         <section>
           <span>
