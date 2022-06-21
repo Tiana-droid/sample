@@ -1,0 +1,26 @@
+.page404 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page404 h1 {
+    font-size: 132px;
+    color: var(--black);
+}
+
+.page404 button {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    margin: 50px;
+    cursor: pointer;
+}
+
+.page404 button:hover {
+    background-color: var(--black);
+}
