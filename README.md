@@ -8,3 +8,9 @@
 ### What is City Xplorer?
 
 **City Xplorer is a company that aids in bringing african foods closer to its buyers in the USA.**
+
+### Live Link
+
+This repo is hosted with netlify for *CI/CD* purposes.
+
+[Click here to view the website](https://www.example.com)
