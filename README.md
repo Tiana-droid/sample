@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -44,3 +45,21 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+=======
+# City Xplorer Frontend Code
+
+> This is the official github repository for ***City xplorer*** frontend code. This code was written with:
+>
+> 1. React Js
+> 2. Typescript
+
+### What is City Xplorer?
+
+**City Xplorer is a company that aids in bringing african foods closer to its buyers in the USA.**
+
+### Live Link
+
+This repo is hosted with netlify for *CI/CD* purposes.
+
+[Click here to view the website](https://www.example.com)
+>>>>>>> 3fbbe0222f946b202605bd38af5945f6b926c745
