@@ -3,8 +3,8 @@ import React, { useContext } from "react";
 import { ProductsContext } from "../context/products";
 
 const ExploreGrocery = () => {
-  const [products, setProducts] = useContext(ProductsContext);
-  console.log(products);
+  const [products] = useContext(ProductsContext);
+  // console.log(products);
   return (
     <div className="exploreGroceryContainer">
       <h1>Explore Our Grocery Products</h1>
