@@ -1,0 +1,59 @@
+.dualShoppingRestaurantContainer {
+  padding: 20px 100px;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.dualShoppingRestaurantContainer section {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.dualShoppingRestaurantContainer div {
+  flex: 50%;
+}
+
+.dualShoppingRestaurantContainer div:first-child {
+  text-align: right;
+}
+
+.dualShoppingRestaurantContainer div:first-child p {
+  margin: 10px 0px;
+}
+
+.dualShoppingRestaurantContainer div:first-child button {
+  background-color: var(--primary);
+  border: none;
+  outline: none;
+  color: var(--white);
+  padding: 10px 30px;
+  width: 360px;
+  margin: 10px 0px;
+  border-radius: 25px;
+  font-size: 15px;
+  /* box-shadow: 0px 0px 20px -8px grey; */
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.dualShoppingRestaurantContainer div:first-child button:hover {
+  box-shadow: 0px 0px 10px #aaa;
+}
+
+.dualShoppingRestaurantContainer div h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.dualShoppingRestaurantContainer div img {
+  width: 400px;
+}
+
+.active {
+  color: var(--primary);
+}

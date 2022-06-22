@@ -1,0 +1,77 @@
+.dualShoppingGroceryContainer {
+  padding: 20px 100px;
+  width: 100%;
+  min-height: 80vh;
+}
+
+.dualShoppingGroceryContainer h4 {
+  text-align: center;
+}
+
+.dualShoppingGroceryContainer .dualShoppingGroceryh1 {
+  color: var(--primary);
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.dualShoppingGroceryContainer h4 {
+  margin-bottom: 10px;
+}
+
+.dualShoppingGroceryContainer section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.dualShoppingGroceryContainer div {
+  flex: 50%;
+}
+
+.dualShoppingGroceryContainer div:first-child {
+  padding-right: 100px;
+}
+
+.dualShoppingGroceryContainer div:first-child p {
+  margin: 10px 0px;
+}
+
+.dualShoppingGroceryContainer div:first-child button {
+  background-color: var(--primary);
+  border: none;
+  outline: none;
+  color: var(--white);
+  padding: 10px 30px;
+  width: 360px;
+  margin: 10px 0px;
+  border-radius: 25px;
+  font-size: 15px;
+  /* box-shadow: 0px 0px 20px -8px grey; */
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.dualShoppingGroceryContainer div:first-child button:hover {
+  box-shadow: 0px 0px 10px #aaa;
+}
+
+.dualShoppingGroceryContainer div h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.dualShoppingGroceryContainer div:nth-child(2) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dualShoppingGroceryContainer div img {
+  width: 400px;
+}
+
+.active {
+  color: var(--primary);
+}

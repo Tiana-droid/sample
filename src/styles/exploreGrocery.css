@@ -1,0 +1,10 @@
+.exploreGroceryContainer {
+  padding: 20px 100px;
+  width: 100%;
+  min-height: 80vh;
+}
+
+.exploreGroceryContainer h1 {
+  color: var(--primary);
+  text-align: center;
+}
