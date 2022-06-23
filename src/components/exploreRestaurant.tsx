@@ -9,20 +9,25 @@ const ExploreRestaurant = () => {
   return (
     <div className="exploreGroceryContainer">
       <h1>Explore Our Restaurant Products</h1>
-      <div className="firstDiv">
-        {products.length !== 0 ? (
-          products.slice(4, 9).map((product: any) => {
-            return (
-              <LandingPageProductCard product={product.food} type={"restaurant"} />
-            );
-          })
-        ) : (
-          <p style={{ textAlign: "center", margin: "50px 0px" }}>
-            Loading Products...
-          </p>
-        )}
-      </div>
-      <h4 className="active">View More</h4>
+      {products.length !== 0 ? (
+        <>
+          <div className="firstDiv">
+            {products.slice(4, 9).map((product: any) => {
+              return (
+                <LandingPageProductCard
+                  product={product.food}
+                  type={"restaurant"}
+                />
+              );
+            })}
+          </div>
+          <h4 className="active">View More</h4>{" "}
+        </>
+      ) : (
+        <p style={{ textAlign: "center", margin: "50px 0px" }}>
+          Loading Products...
+        </p>
+      )}
     </div>
   );
 };
