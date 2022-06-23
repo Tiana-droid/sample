@@ -1,3 +1,4 @@
+import Brands from "../components/brands";
 import DualShoppingGrocery from "../components/dualShoppingGrocery";
 import DualShoppingRestaurant from "../components/dualShoppingRestaurant";
 import ExploreGrocery from "../components/exploreGrocery";
@@ -16,6 +17,7 @@ const LandingPage = () => {
       <DualShoppingRestaurant />
       <ExploreGrocery />
       <ExploreRestaurant />
+      <Brands />
     </div>
   );
 };
