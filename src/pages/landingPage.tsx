@@ -3,6 +3,7 @@ import DualShoppingGrocery from "../components/dualShoppingGrocery";
 import DualShoppingRestaurant from "../components/dualShoppingRestaurant";
 import ExploreGrocery from "../components/exploreGrocery";
 import ExploreRestaurant from "../components/exploreRestaurant";
+import Footer from "../components/footer";
 import HeroSection from "../components/heroSection";
 import HowWeOperate from "../components/howWeOperate";
 import NavBar from "../components/navBar";
@@ -18,6 +19,7 @@ const LandingPage = () => {
       <ExploreGrocery />
       <ExploreRestaurant />
       <Brands />
+      <Footer />
     </div>
   );
 };
