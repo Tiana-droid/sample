@@ -55,7 +55,7 @@
 }
 
 .dualShoppingGroceryContainer div:first-child button:hover {
-  box-shadow: 0px 0px 10px #aaa;
+  box-shadow: --button-hover-shadow;
 }
 
 .dualShoppingGroceryContainer div h1 {

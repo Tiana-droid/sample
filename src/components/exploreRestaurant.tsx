@@ -3,16 +3,18 @@ import React, { useContext } from "react";
 import { ProductsContext } from "../context/products";
 import LandingPageProductCard from "./landingPageProductCard";
 
-const ExploreGrocery = () => {
+const ExploreRestaurant = () => {
   const [products] = useContext(ProductsContext);
   // console.log(products);
   return (
     <div className="exploreGroceryContainer">
-      <h1>Explore Our Grocery Products</h1>
+      <h1>Explore Our Restaurant Products</h1>
       <div className="firstDiv">
         {products.length !== 0 ? (
-          products.slice(0, 5).map((product: any) => {
-            return <LandingPageProductCard product={product.food} type={"grocery"} />;
+          products.slice(4, 9).map((product: any) => {
+            return (
+              <LandingPageProductCard product={product.food} type={"restaurant"} />
+            );
           })
         ) : (
           <p style={{ textAlign: "center", margin: "50px 0px" }}>
@@ -25,4 +27,4 @@ const ExploreGrocery = () => {
   );
 };
 
-export default ExploreGrocery;
+export default ExploreRestaurant;

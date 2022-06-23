@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import "../styles/navBar.css";
 import { BiUser, BiSearchAlt, BiCart } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 interface Props {
   page:
@@ -54,10 +55,12 @@ const NavBar = (props: Props) => {
   return (
     <div className="navBarContainer">
       <section className="topNav">
-        <img src={require("../assets/logo.png")} alt="logo" />
+        <Link to="/">
+          <img src={require("../assets/logo.png")} alt="logo" />
+        </Link>
         <p>
-          WE OFFER FREE DELIVERY SERVICES ON MONTHLY SUBSCRIPTION BASED
-          ON YOUR LOCATION
+          WE OFFER FREE DELIVERY SERVICES ON MONTHLY SUBSCRIPTION BASED ON YOUR
+          LOCATION
         </p>
         <section>
           <span>
@@ -125,7 +128,7 @@ const NavBar = (props: Props) => {
             Subscription
             <div className={showDiv === "subscription" ? "showDiv" : "hideDiv"}>
               <ol>
-                <li>Monthly subsciption</li>
+                <li>Monthly subscription</li>
               </ol>
             </div>
           </li>

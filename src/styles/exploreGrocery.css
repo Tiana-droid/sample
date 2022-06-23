@@ -3,8 +3,70 @@
   width: 100%;
   min-height: 80vh;
 }
+.exploreGroceryContainer h4 {
+  text-align: center;
+  cursor: pointer;
+}
 
 .exploreGroceryContainer h1 {
   color: var(--primary);
   text-align: center;
+  margin-bottom: 50px;
+}
+
+.exploreGroceryContainer .firstDiv {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+}
+
+.landingPageProductCardContainer {
+  box-shadow: 0px 0px 10px #ddd;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  min-height: 55vh;
+  text-align: center;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.landingPageProductCardContainer .img1 {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.landingPageProductCardContainer .imageCon .img2 {
+  width: 80%;
+  height: auto;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.landingPageProductCardContainer .imageCon {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  display: grid;
+  place-items: center;
+}
+
+.landingPageProductCardContainer button {
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.landingPageProductCardContainer button:hover {
+  box-shadow: var(--button-hover-shadow);
+}
+
+.active {
+  color: var(--primary);
 }
