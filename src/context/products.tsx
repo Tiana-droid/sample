@@ -22,7 +22,7 @@ export const ProductsProvider = (props: any) => {
       // console.log(response.data)
     })
     .catch(function (error: any) {
-      console.error(error);
+      // console.error(error);
     });
 
   return (

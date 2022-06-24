@@ -96,7 +96,7 @@ const NavBar = (props: Props) => {
             Account
             <div className={showDiv === "account" ? "showDiv" : "hideDiv"}>
               <ol>
-                <Link to="/register">
+                <Link to="/register" state={"buyer"}>
                   <li>Sign Up As A Buyer</li>
                 </Link>
                 <li>Sign Up As A Merchant</li>

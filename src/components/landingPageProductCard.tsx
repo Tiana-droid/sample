@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/exploreGrocery.css";
 
 const LandingPageProductCard = (props: any) => {
-  console.log(props.product);
+  // console.log(props.product);
   return (
     <div className="landingPageProductCardContainer">
       {props.type === "grocery" ? (
