@@ -4,6 +4,7 @@
   min-height: 80vh;
   display: flex;
   align-items: center;
+  background-color: var(--primary-transparent);
 }
 
 .dualShoppingRestaurantContainer section {
@@ -19,7 +20,7 @@
 }
 
 .dualShoppingRestaurantContainer div:first-child {
-  text-align: right;
+  padding-left: 100px;
 }
 
 .dualShoppingRestaurantContainer div:first-child p {

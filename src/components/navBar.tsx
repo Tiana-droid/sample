@@ -76,7 +76,10 @@ const NavBar = (props: Props) => {
       </section>
       <section className="bottomNav">
         <ul>
-          <li className={props.page === "home" ? "active" : "li"}>Home</li>
+          <li className={props.page === "home" ? "active" : "li"}>
+            <Link to="/">Home</Link>
+          </li>
+
           <li className={props.page === "shop" ? "active" : "li"} ref={shop}>
             Shop
             <div className={showDiv === "shop" ? "showDiv" : "hideDiv"}>
@@ -93,7 +96,9 @@ const NavBar = (props: Props) => {
             Account
             <div className={showDiv === "account" ? "showDiv" : "hideDiv"}>
               <ol>
-                <li>Sign Up As A Buyer</li>
+                <Link to="/register">
+                  <li>Sign Up As A Buyer</li>
+                </Link>
                 <li>Sign Up As A Merchant</li>
                 <li>Sign In</li>
                 <li>My Account</li>

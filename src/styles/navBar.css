@@ -46,14 +46,18 @@
   border-bottom: 1px solid var(--primary);
 }
 
-.navBarContainer .bottomNav ul li {
+.navBarContainer .bottomNav ul li,
+.navBarContainer .bottomNav ul a {
   cursor: pointer;
   position: relative;
   height: inherit;
   margin-top: 4vh;
+  /* color: var(--black); */
+  text-decoration: none;
 }
 
-.navBarContainer .bottomNav ul li div {
+.navBarContainer .bottomNav ul li div,
+.navBarContainer .bottomNav ul a div {
   position: absolute;
   box-shadow: 0px 0px 5px #ddd;
   /* border-radius: 5px; */
@@ -77,18 +81,23 @@
   list-style-type: none;
 }
 
-.navBarContainer .bottomNav ul li div ol li {
+.navBarContainer .bottomNav ul li div ol li,
+.navBarContainer .bottomNav ul li div ol a {
   margin: 10px 0px;
+  color: var(--black);
+  text-decoration: none;
 }
 
-.navBarContainer .bottomNav ul li div ol li:hover {
+.navBarContainer .bottomNav ul li div ol li:hover,
+.navBarContainer .bottomNav ul li div ol a:hover {
   color: var(--primary);
 }
 
-.navBarContainer .bottomNav ul .li {
+.navBarContainer .bottomNav ul .li a {
   color: var(--black);
 }
 
+.navBarContainer .active a,
 .navBarContainer .active {
   color: var(--primary);
 }

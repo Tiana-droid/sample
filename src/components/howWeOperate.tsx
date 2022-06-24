@@ -17,11 +17,11 @@ const HowWeOperate = () => {
           <p>Place your order at your convenience</p>
         </section>
         <section>
-          <img src={require("../assets/image 16.png")} alt="Make Payment" />
+          <img src={require("../assets/image 17.png")} alt="Make Payment" />
           <p>Make Payment</p>
         </section>
         <section>
-          <img src={require("../assets/image 17.png")} alt="Order Delivery" />
+          <img src={require("../assets/image 16.png")} alt="Order Delivery" />
           <p>Get your order delivered to you</p>
         </section>
       </div>

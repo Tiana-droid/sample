@@ -3,6 +3,7 @@ import "../styles/footer.css";
 import { BiPhoneCall, BiMailSend, BiLocationPlus } from "react-icons/bi";
 
 const Footer = () => {
+
   return (
     <div className="footerContainer">
       <section>
