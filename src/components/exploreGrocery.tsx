@@ -5,28 +5,36 @@ import LandingPageProductCard from "./landingPageProductCard";
 
 const ExploreGrocery = () => {
   const [products] = useContext(ProductsContext);
-  // console.log(products);
+  // console.log(!products.message);
   return (
     <div className="exploreGroceryContainer">
       <h1>Explore Our Grocery Products</h1>
-      {products.length !== 0 ? (
-        <>
-          <div className="firstDiv">
-            {products.slice(0, 5).map((product: any) => {
-              return (
-                <LandingPageProductCard
-                  product={product.food}
-                  type={"grocery"}
-                />
-              );
-            })}
-          </div>
-          <h4 className="active">View More</h4>{" "}
-        </>
-      ) : (
+      {products.message ? (
         <p style={{ textAlign: "center", margin: "50px 0px" }}>
-          Loading Products...
+          {products.message}
         </p>
+      ) : (
+        <>
+          {products.length !== 0 ? (
+            <>
+              <div className="firstDiv">
+                {products.slice(0, 5).map((product: any) => {
+                  return (
+                    <LandingPageProductCard
+                      product={product.food}
+                      type={"grocery"}
+                    />
+                  );
+                })}
+              </div>
+              <h4 className="active">View More</h4>{" "}
+            </>
+          ) : (
+            <p style={{ textAlign: "center", margin: "50px 0px" }}>
+              Loading Products...
+            </p>
+          )}
+        </>
       )}
     </div>
   );

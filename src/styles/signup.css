@@ -1,0 +1,133 @@
+.signUpContainer {
+  width: 40%;
+  min-height: 80vh;
+  padding: 50px;
+  margin: auto;
+}
+
+.signUpContainer h2 {
+  color: var(--primary);
+}
+
+.signUpContainer button {
+  background-color: var(--primary);
+  border: none;
+  outline: none;
+  color: var(--white);
+  padding: 10px 30px;
+  width: 250px;
+  margin: 10px 0px;
+  border-radius: 25px;
+  font-size: 12px;
+  transition: box-shadow 0.3s;
+}
+
+.signUpContainer .btnActive {
+  background-color: var(--button-active);
+  cursor: not-allowed;
+}
+
+.signUpContainer .btnActive:hover {
+  box-shadow: none;
+}
+
+.signUpContainer button:hover {
+  box-shadow: var(--button-hover-shadow);
+}
+
+.signUpContainer form label,
+.signUpContainer form input {
+  display: block;
+}
+
+#checkboxLabel {
+  display: inline;
+  margin-left: 10px;
+  font-size: 10px;
+}
+
+#checkboxLabel span {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.signUpContainer form input[type="text"],
+.signUpContainer form input[type="password"],
+.signUpContainer form input[type="email"],
+.signUpContainer form input[type="submit"] {
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  outline: none;
+  transition: 0.5s;
+}
+
+.inputError {
+  color: red;
+  font-size: 10px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.signUpContainer form input:focus {
+  border-color: var(--primary);
+}
+
+.signUpContainer form input[type="submit"] {
+  border: none;
+  color: var(--white);
+  background-color: var(--primary);
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.signUpContainer form div {
+  position: relative;
+}
+
+.eyePassword {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translate(-50%, -50%);
+
+  cursor: pointer;
+}
+
+#eyePassword1 {
+  color: #aaa;
+}
+
+#eyePassword2 {
+  color: var(--primary);
+}
+
+.signUpContainer form input[type="checkbox"] {
+  position: relative;
+  cursor: pointer;
+  display: inline;
+}
+
+.signUpContainer form input[type="submit"]:hover {
+  box-shadow: var(--button-hover-shadow);
+}
+
+.signUpContainer form {
+  padding: 20px;
+  padding-bottom: 40px;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
+.signUpContainer form p {
+  float: right;
+  font-size: 10px;
+}
+
+.signUpContainer form p span {
+  color: var(--primary);
+}

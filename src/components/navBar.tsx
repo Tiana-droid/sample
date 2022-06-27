@@ -99,7 +99,9 @@ const NavBar = (props: Props) => {
                 <Link to="/register" state={"buyer"}>
                   <li>Sign Up As A Buyer</li>
                 </Link>
-                <li>Sign Up As A Merchant</li>
+                <Link to="/register" state={"merchant"}>
+                  <li>Sign Up As A Merchant</li>
+                </Link>
                 <li>Sign In</li>
                 <li>My Account</li>
               </ol>
