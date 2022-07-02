@@ -18,11 +18,12 @@ const ExploreGrocery = () => {
           {products.length !== 0 ? (
             <>
               <div className="firstDiv">
-                {products.slice(0, 5).map((product: any) => {
+                {products.slice(0, 5).map((product: any, index: Number) => {
                   return (
                     <LandingPageProductCard
                       product={product.food}
                       type={"grocery"}
+                      key={index}
                     />
                   );
                 })}
