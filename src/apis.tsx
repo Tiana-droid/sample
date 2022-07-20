@@ -55,7 +55,7 @@ export const EmailVerify = async (
   });
   try {
     const returnData = await axios({
-      method: "post",
+      method: "patch",
       url: `${apiUrl}auth/verifyEmail`,
       headers: {
         "Content-Type": "application/json",
