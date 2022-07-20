@@ -59,6 +59,39 @@ export const EmailVerify = async (
       url: `${apiUrl}auth/verifyEmail`,
       headers: {
         "Content-Type": "application/json",
+        "authorization": `Bearer: ${tokenValue}`,
+      },
+      data: data,
+    }).then((data) => {
+      return data;
+    });
+
+    //console.log(returnData);
+    return returnData;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const loginApi = async (
+  fullNameValue: String,
+  emailValue: String,
+  passwordValue: String,
+  verificationCodeValue: String,
+  tokenValue: String
+) => {
+  let data = JSON.stringify({
+    fullName: fullNameValue,
+    email: emailValue,
+    password: passwordValue,
+    verificationCode: verificationCodeValue,
+  });
+  try {
+    const returnData = await axios({
+      method: "post",
+      url: `${apiUrl}auth/login`,
+      headers: {
+        "Content-Type": "application/json",
         authorization: `Bearer: ${tokenValue}`,
       },
       data: data,

@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 import "../styles/signup.css";
 import { Link } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import { RegisterApi } from "../apis";
+import { RegisterApi, EmailVerify } from "../apis";
 import { GoMailRead } from "react-icons/go";
-import { BsCheck2Square } from "react-icons/bs";
+// import { BsCheck2Square } from "react-icons/bs";
 
 const SignUp = () => {
   const location = useLocation();
@@ -20,14 +20,14 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [btnDisable, setBtnDisable] = useState(false);
   const [verifyBtnDisable, setVerifyBtnDisable] = useState(false);
-
+  const [token, setToken] = useState("");
   const [verifyEmailModal, setVerifyEmailModal] = useState(false);
 
   const submitForm = (e: React.SyntheticEvent) => {
     e.preventDefault();
     setBtnDisable(true);
-    setVerifyEmailModal(true);
-    focusInputsAuto(0);
+    // setVerifyEmailModal(true);
+
     let nameErr = document.getElementsByClassName(
       "nameError"
     )[0] as HTMLFormElement;
@@ -106,6 +106,46 @@ const SignUp = () => {
     let result = await RegisterApi(name, email, password);
     console.log(result);
     setBtnDisable(false);
+
+    if (result.status === 200) {
+      setToken(result.data.token);
+      localStorage.setItem("cityXplorer_user", JSON.stringify(result.data));
+      setVerifyEmailModal(true);
+      focusInputsAuto(0);
+    } else {
+      if (result.response.data === undefined) {
+        console.log("An error occurred, please try again!");
+      } else {
+        console.log("error");
+      }
+    }
+  };
+
+  const verifyEmail = async () => {
+    setVerifyBtnDisable(true);
+    let verifyCode = "";
+
+    const verifyInputs: any = document.querySelectorAll(
+      ".verifyInput"
+    ) as NodeListOf<HTMLInputElement>;
+    for (let i = 0; i < verifyInputs.length; i++) {
+      if (verifyInputs[i].value === "") {
+        verifyInputs[i].style.borderColor = "red";
+        setVerifyBtnDisable(false);
+        return;
+      } else {
+        verifyCode += String(verifyInputs[i].value);
+      }
+    }
+    console.log(verifyCode)
+    let result: any = await EmailVerify(name, email, password, verifyCode, token);
+    console.log(result);
+    setVerifyBtnDisable(false);
+    if (result.status === 200) {
+      console.log("verified");
+    } else {
+      console.log("error verify");
+    }
   };
 
   const changePasswordType = () => {
@@ -244,7 +284,7 @@ const SignUp = () => {
               type="submit"
               name="submit"
               id="submit"
-              value="Sign Up"
+              value={btnDisable ? "Loading" : "Sign Up"}
               style={
                 btnDisable
                   ? {
@@ -326,6 +366,12 @@ const SignUp = () => {
               maxLength={1}
               onChange={() => focusInputsAuto(5)}
             />
+            <input
+              type="text"
+              className="verifyInput"
+              maxLength={1}
+              onChange={() => focusInputsAuto(6)}
+            />
           </div>
           <div>
             <button
@@ -338,9 +384,9 @@ const SignUp = () => {
                   : { backgroundColor: "var(--primary)", cursor: "pointer" }
               }
               disabled={verifyBtnDisable}
-              onClick={() => setVerifyBtnDisable(true)}
+              onClick={() => verifyEmail()}
             >
-              Verify your mail
+              {verifyBtnDisable ? <>Loading</> : <>Verify your mail</>}
             </button>
           </div>
           <div>

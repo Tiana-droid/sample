@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import axios from "axios";
 
 export const ProductsContext = createContext<any | null>(null);
@@ -15,7 +15,8 @@ export const ProductsProvider = (props: any) => {
     },
   };
 
-  axios
+  useEffect(()=> {
+    axios
     .request(options)
     .then(function (response: any) {
       setProducts(response.data.hints);
@@ -25,6 +26,8 @@ export const ProductsProvider = (props: any) => {
       setProducts(error);
       //console.log(error)
     });
+  }, [])
+  
 
   return (
     <ProductsContext.Provider value={[products, setProducts]}>
