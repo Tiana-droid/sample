@@ -10,7 +10,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/register" element={<SignUp />} />
-
           <Route path="/*" element={<Page404 />} />
         </Routes>
       </Router>
