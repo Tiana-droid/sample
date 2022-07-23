@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import NavBar from "../components/navBar";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -9,101 +9,86 @@ import { RegisterApi, EmailVerify } from "../apis";
 import { GoMailRead } from "react-icons/go";
 // import { BsCheck2Square } from "react-icons/bs";
 
+type FormErrors = {
+  fullName?: string;
+  email?: string;
+  password?: string;
+  checkbox?: string;
+};
+
+type SignUpFormT = {
+  fullName: string;
+  email: string;
+  password: string;
+  checkbox: string;
+};
+
 const SignUp = () => {
   const location = useLocation();
   // console.log(location);
   const [type, setType] = useState(location.state);
-  const [passwordType, setPasswordType] = useState("password");
+  const [passwordType, setPasswordType] = useState<string>("");
+  const [form, setForm] = useState<SignUpFormT>({
+    fullName: "",
+    email: "",
+    password: "",
+    checkbox: "",
+  });
+  const [btnDisable, setBtnDisable] = useState<boolean>(false);
+  const [verifyBtnDisable, setVerifyBtnDisable] = useState<boolean>(false);
+  const [verifyEmailModal, setVerifyEmailModal] = useState<boolean>(false);
+  const [token, setToken] = useState<string>("");
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [btnDisable, setBtnDisable] = useState(false);
-  const [verifyBtnDisable, setVerifyBtnDisable] = useState(false);
-  const [token, setToken] = useState("");
-  const [verifyEmailModal, setVerifyEmailModal] = useState(false);
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const toggleCheckbox = () => setForm(prevState =>({
+    ...prevState,
+    checkbox: prevState.checkbox === 'true' ? 'false' : 'true'
+  }))
 
   const submitForm = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    setBtnDisable(true);
-    // setVerifyEmailModal(true);
-
-    let nameErr = document.getElementsByClassName(
-      "nameError"
-    )[0] as HTMLFormElement;
-    let nameInputErr = document.getElementById("fullName") as HTMLFormElement;
-    let emailErr = document.getElementsByClassName(
-      "emailError"
-    )[0] as HTMLFormElement;
-    let emailInputErr = document.getElementById("email") as HTMLFormElement;
-    let passwordErr = document.getElementsByClassName(
-      "passwordError"
-    )[0] as HTMLFormElement;
-    let passwordInputErr = document.getElementById(
-      "password"
-    ) as HTMLFormElement;
-    let checkboxErr = document.getElementsByClassName(
-      "checkboxError"
-    )[0] as HTMLFormElement;
-    let checkboxInputErr = document.getElementById(
-      "checkbox"
-    ) as HTMLFormElement;
-
-    let NameError = false;
-    let PasswordError = false;
-    let EmailError = false;
-    let CheckError = false;
+    const formErrors: FormErrors = {};
+    const { fullName, email, password, checkbox } = form;
 
     var pattern = new RegExp(
       "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-+_!@#$%^&*.,?]).+$"
     );
 
-    if (name === "" || name.length < 6) {
-      nameErr.style.display = "block";
-      nameInputErr.style.borderColor = "red";
-      NameError = false;
-    } else {
-      nameErr.style.display = "none";
-      nameInputErr.style.borderColor = "#aaa";
-      NameError = true;
+    if (fullName === "" || fullName.length < 6) {
+      formErrors.fullName =
+        "Full name is required and must be six characters and more";
     }
-
     if (email === "" || !email.includes(".") || !email.includes("@")) {
-      emailErr.style.display = "block";
-      emailInputErr.style.borderColor = "red";
-      EmailError = false;
-    } else {
-      emailErr.style.display = "none";
-      emailInputErr.style.borderColor = "#aaa";
-      EmailError = true;
+      formErrors.email =
+        "Please enter your email in this format 'example@gmail.com'";
     }
-
     if (password === "" || password.length < 8 || !pattern.test(password)) {
-      passwordErr.style.display = "block";
-      passwordInputErr.style.borderColor = "red";
-      PasswordError = false;
-    } else {
-      passwordErr.style.display = "none";
-      passwordInputErr.style.borderColor = "#aaa";
-      PasswordError = true;
+      formErrors.password =
+        "Password must have at least 8 character that include at least 1 lowercase, 1 uppercase, 1 digit and 1 special character";
     }
 
-    if (!checkboxInputErr.checked) {
-      checkboxErr.style.display = "block";
-      CheckError = false;
-    } else {
-      checkboxErr.style.display = "none";
-      CheckError = true;
+    if (!checkbox) {
+      formErrors.checkbox = "You must agree to our terms in order to continue";
     }
-
-    if (EmailError && PasswordError && NameError && CheckError)
-      return submitRegister();
-
-    setBtnDisable(false);
+    setFormErrors(formErrors);
+    if (!Object.keys(formErrors).length) {
+      submitRegister();
+    }
   };
 
+
   const submitRegister = async () => {
-    let result = await RegisterApi(name, email, password);
+    const { fullName, email, password } = form;
+    let result = await RegisterApi(fullName, email, password);
     console.log(result);
     setBtnDisable(false);
 
@@ -137,8 +122,15 @@ const SignUp = () => {
         verifyCode += String(verifyInputs[i].value);
       }
     }
-    console.log(verifyCode)
-    let result: any = await EmailVerify(name, email, password, verifyCode, token);
+    console.log(verifyCode);
+    const { fullName, email, password } = form;
+    let result: any = await EmailVerify(
+      fullName,
+      email,
+      password,
+      verifyCode,
+      token
+    );
     console.log(result);
     setVerifyBtnDisable(false);
     if (result.status === 200) {
@@ -211,74 +203,89 @@ const SignUp = () => {
             </button>
           </Link>
           <form onSubmit={submitForm}>
-            <label htmlFor="fullName">Full name</label>
-            <input
-              className="formInput"
-              type="text"
-              name="fullName"
-              id="fullName"
-              placeholder="Enter your full name"
-              value={name}
-              onChange={(e: any) => setName(e.target.value)}
-            />
-            <span className="inputError nameError">
-              Full name is required and must be six characters and more
-            </span>
-            <label htmlFor="email">Email</label>
-            <input
-              className="formInput"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Enter your email-address"
-              value={email}
-              onChange={(e: any) => setEmail(e.target.value)}
-            />
-            <span className="inputError emailError">
-              Please enter your email in this format 'example@gmail.com'
-            </span>
-            <label htmlFor="password">Password</label>
-            <div>
+            <div className="input-group">
+              <label htmlFor="fullName">Full name</label>
               <input
                 className="formInput"
-                type={passwordType === "password" ? "password" : "text"}
-                name="password"
-                id="password"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e: any) => setPassword(e.target.value)}
+                type="text"
+                name="fullName"
+                id="fullName"
+                placeholder="Enter your full name"
+                value={form.fullName}
+                onChange={handleInputChange}
               />
-
-              {passwordType === "password" ? (
-                <FiEyeOff
-                  id="eyePassword1"
-                  className="eyePassword"
-                  onClick={changePasswordType}
-                />
-              ) : (
-                <FiEye
-                  id="eyePassword2"
-                  className="eyePassword"
-                  onClick={changePasswordType}
-                />
+              {formErrors.fullName && (
+                <span className="inputError">{formErrors.fullName}</span>
               )}
             </div>
-            <span className="inputError passwordError">
-              Password must have at least 8 character that include at least 1
-              lowercase, 1 uppercase, 1 digit and 1 special character
-            </span>
-
-            <input type="checkbox" name="checkbox" id="checkbox" />
-            <label htmlFor="checkbox" id="checkboxLabel">
-              Creating an account means you're okay with our{" "}
-              <span>Terms and Services, Privacy Policy</span> and our default{" "}
-              <span>Notification Settings</span>
-            </label>
+            <div className="input-group">
+              <label htmlFor="email">Email</label>
+              <input
+                className="formInput"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter your email-address"
+                value={form.email}
+                onChange={handleInputChange}
+              />
+              {formErrors.email && (
+                <span className="inputError emailError">
+                  {formErrors.email}
+                </span>
+              )}
+            </div>
+            <div className="input-group">
+              <label htmlFor="password">Password</label>
+              <div>
+                <input
+                  className="formInput"
+                  type={passwordType === "password" ? "password" : "text"}
+                  name="password"
+                  id="password"
+                  placeholder="Enter your password"
+                  value={form.password}
+                  onChange={handleInputChange}
+                />
+                {passwordType === "password" ? (
+                  <FiEyeOff
+                    id="eyePassword1"
+                    className="eyePassword"
+                    onClick={changePasswordType}
+                  />
+                ) : (
+                  <FiEye
+                    id="eyePassword2"
+                    className="eyePassword"
+                    onClick={changePasswordType}
+                  />
+                )}
+              </div>
+              {formErrors.password && (
+                <span className="inputError passwordError">
+                  {formErrors.password}
+                </span>
+              )}
+            </div>
+            <div className="input-group">
+              <input
+                type="checkbox"
+                name="checkbox"
+                id="checkbox"
+                value={form.checkbox}
+                onChange={toggleCheckbox}
+              />
+              <label htmlFor="checkbox" id="checkboxLabel">
+                Creating an account means you're okay with our{" "}
+                <span>Terms and Services, Privacy Policy</span> and our default{" "}
+                <span>Notification Settings</span>
+              </label>
+            </div>
             <br />
             <br />
-            <span className="inputError checkboxError">
-              You must agree to our terms in order to continue
-            </span>
+            {formErrors.checkbox && (
+              <span className="inputError">{formErrors.checkbox}</span>
+            )}
             <input
               className="formInput"
               type="submit"
@@ -326,7 +333,7 @@ const SignUp = () => {
           <div>
             <p>You are almost there! We sent a verification code to</p>
             <p>
-              <b>{email}</b>
+              <b>{form.email}</b>
             </p>
           </div>
           <div>

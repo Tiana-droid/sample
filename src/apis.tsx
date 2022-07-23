@@ -18,6 +18,7 @@ export const RegisterApi = async (
     const returnData = await axios({
       method: "post",
       url: `${apiUrl}auth/register`,
+      withCredentials: true,
       headers: {
         "Content-Type": "application/json",
       },
@@ -61,6 +62,7 @@ export const EmailVerify = async (
         "Content-Type": "application/json",
         "authorization": `Bearer: ${tokenValue}`,
       },
+      withCredentials: true,
       data: data,
     }).then((data) => {
       return data;
