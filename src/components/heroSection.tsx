@@ -1,30 +1,23 @@
-import React from "react";
-import "../styles/heroSection.css";
+import React from "react"
+import "../styles/heroSection.css"
 
 const HeroSection = () => {
-    
   return (
     <div className="heroSectionContainer">
       <div>
-        <h1>
-          <span className="active">Explore</span> An Online African Restaurant
-          And Store.
-        </h1>
-        <p>
-          Explore rour African foods and experience the advantage of an online
-          restaurant and grocery delivery services with{" "}
-          <span className="black"> City</span>
-          <span className="primary">Xplorer.</span>
-              </p>
-              
-        <button>Shop For Grocery Now</button>
-        <button>Shop For Restaurant Now</button>
+        <h1>COMING SOON!!!</h1>
+        <h1>Be the first to order your African food when we launch...</h1>
+        <p>Join our wait-list and enjoy a free delivery on your first order.</p>
+        <div>
+          <input />
+          <input />
+        </div>
       </div>
       <div>
         <img src={require("../assets/hero image.png")} alt="Food" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HeroSection;
+export default HeroSection
