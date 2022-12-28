@@ -1,77 +1,54 @@
-.dualShoppingGroceryContainer {
-  padding: 20px 100px;
-  width: 100%;
-  min-height: 80vh;
-}
-
-.dualShoppingGroceryContainer h4 {
-  text-align: center;
-}
-
-.dualShoppingGroceryContainer .dualShoppingGroceryh1 {
-  color: var(--primary);
-  font-size: 30px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.dualShoppingGroceryContainer h4 {
-  margin-bottom: 10px;
-}
-
-.dualShoppingGroceryContainer section {
+.FAQ-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.dualShoppingGroceryContainer div {
-  flex: 50%;
-}
-
-.dualShoppingGroceryContainer div:first-child {
-  padding-right: 100px;
-}
-
-.dualShoppingGroceryContainer div:first-child p {
-  margin: 10px 0px;
-}
-
-.dualShoppingGroceryContainer div:first-child button {
-  background-color: var(--primary);
-  border: none;
-  outline: none;
-  color: var(--white);
-  padding: 10px 30px;
-  width: 360px;
-  margin: 10px 0px;
-  border-radius: 25px;
-  font-size: 15px;
-  /* box-shadow: 0px 0px 20px -8px grey; */
-  cursor: pointer;
-  transition: box-shadow 0.3s;
-}
-
-.dualShoppingGroceryContainer div:first-child button:hover {
-  box-shadow: var(--button-hover-shadow);
-}
-
-.dualShoppingGroceryContainer div h1 {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-.dualShoppingGroceryContainer div:nth-child(2) {
+.form-group button {
+  width: 1159px;
+  text-align: left;
+  height: 84px;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--white);
+  border-width: 1px;
+  border-color: rgba(224, 224, 224, 0.87);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
 
-.dualShoppingGroceryContainer div img {
-  width: 400px;
+.form-group button img {
+  height: 12px;
+  width: 16px;
+  margin-right: 26.65px;
 }
 
-.active {
-  color: var(--primary);
+.form-group {
+  background-color: var(--white);
+  margin-bottom: 48px;
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: rgba(224, 224, 224, 0.87);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.form-group button p {
+  padding-left: 14px;
+}
+
+li {
+  list-style: none;
+  margin-left: 14px;
+}
+ul {
+  margin-bottom: 14px;
 }

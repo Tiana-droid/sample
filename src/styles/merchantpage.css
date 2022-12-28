@@ -1,0 +1,270 @@
+/* top panel */
+.topPanelContainer {
+  margin-left: 62px;
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 159px;
+  gap: 61px;
+  margin-right: 59px;
+}
+
+.topPanelContainer .topPanelRight img {
+  height: 455px;
+  width: 455px;
+  border-radius: 227.5px;
+  object-fit: fill;
+  position: relative;
+  -webkit-border-radius: 227.5px;
+  -moz-border-radius: 227.5px;
+  -ms-border-radius: 227.5px;
+  -o-border-radius: 227.5px;
+}
+
+.topPanelContainer .topPanelRight {
+  flex: 55%;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.topPanelContainer .topPanelRight .topPanelCard {
+  max-width: 35vw;
+  background-color: rgba(255, 255, 255, 0.98);
+  z-index: 99;
+  max-height: 180px;
+  position: absolute;
+  top: 400px;
+  left: 369px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  box-shadow: 10px 10px 40px lightgray;
+}
+
+.topPanelContainer .topPanelRight .topPanelCard h2 {
+  color: rgba(118, 120, 114, 1);
+  line-height: 21px;
+  font-size: 14px;
+  margin: 5px 10px;
+}
+
+.topPanelContainer .topPanelRight .topPanelCard img {
+  width: 38px;
+  height: 38px;
+  margin: 10px 10px;
+}
+
+.topPanelContainer .topPanelRight .card-bottom {
+  max-width: 25vw;
+  background-color: rgba(255, 255, 255, 0.98);
+  z-index: 99;
+  min-height: 180px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  box-shadow: 10px 10px 40px lightgray;
+}
+
+.topPanelContainer .topPanelRight .card-bottom .card-bottom-single-card img {
+  width: 101px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.topPanelContainer .topPanelRight .card-bottom .card-bottom-single-card {
+  width: 101px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+.topPanelContainer .topPanelRight .card-bottom .card-bottom-single-card h4 {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12px;
+  color: black;
+  margin: 4px 0;
+}
+
+.topPanelContainer .topPanelRight .card-bottom .card-bottom-single-card h5 {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  color: black;
+  margin: 4px 0;
+}
+
+.topPanelContainer
+  .topPanelRight
+  .card-bottom
+  .card-bottom-single-card
+  .price-rating
+  h6 {
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.topPanelContainer
+  .topPanelRight
+  .card-bottom
+  .card-bottom-single-card
+  .price-rating
+  img {
+  width: 12px;
+  height: 12px;
+  font-weight: 600;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topPanelContainer
+  .topPanelRight
+  .card-bottom
+  .card-bottom-single-card
+  .price-rating
+  h5 {
+  font-size: 14px;
+  line-height: 17px;
+  color: #ff7d05;
+  font-weight: bold;
+  margin-left: 23px;
+}
+
+.flex-even {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.topPanelContainer .topPanelLeft {
+  flex: 45%;
+}
+
+.topPanelContainer .topPanelLeft h1 {
+  color: var(--black);
+  font-size: 36px;
+  line-height: 54px;
+  font-weight: 600;
+}
+
+.topPanelContainer .topPanelLeft h2 {
+  color: var(--primary);
+  font-size: 36px;
+  line-height: 54px;
+  font-weight: 600;
+}
+
+.topPanelContainer h3 {
+  color: var(--black);
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 24px;
+}
+.topPanelContainer li {
+  list-style-type: disc;
+  margin: 24px 0;
+}
+
+.topPanelContainer ul {
+  padding-left: 85px;
+}
+
+/* bottom panel */
+
+.bottompanel-left {
+  flex: 35%;
+}
+
+.bottompanel-right {
+  flex: 30%;
+  background-color: var(--white);
+  z-index: 99;
+  border-radius: 4px;
+  box-shadow: 10px 10px 40px lightgray;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.topPanelContainer .bottompanel-left h5 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.topPanelContainer .bottompanel-right h3 {
+  text-align: center;
+  line-height: 31px;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.topPanelContainer .bottompanel-right h4 {
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 21px;
+  color: #1b1c1e;
+}
+
+.topPanelContainer .bottompanel-right h6 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #767872;
+  margin-bottom: 32px;
+}
+
+.topPanelContainer .bottompanel-right .form-container {
+  margin-left: 24px;
+  margin-top: 40px;
+}
+
+.topPanelContainer .bottompanel-right .form-container .form-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  gap: 30px;
+}
+
+.topPanelContainer .bottompanel-right .form-container .buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 73px;
+  margin-bottom: 24px;
+}
+
+.topPanelContainer .bottompanel-right .form-container .buttonContainer button {
+  width: 213px;
+  height: 52px;
+  background-color: var(--primary);
+  border: none;
+  outline: none;
+}
+
+.flex-checkbox {
+  display: flex;
+  align-items: center;
+}

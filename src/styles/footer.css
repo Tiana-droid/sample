@@ -5,51 +5,43 @@
 
 .footerContainer section:first-child {
   width: 100%;
-  padding: 20px 100px;
+  padding: 38px 103px;
   background-color: var(--black);
-  min-height: 40vh;
+  min-height: 50vh;
   display: grid;
-  grid-template-columns: 30% 30% 40%;
-  grid-gap: 20px;
+  grid-template-columns: 20% 20% 45%;
+  grid-gap: 173px;
   color: var(--white);
 }
 .footerContainer section:first-child div {
   display: flex;
-  min-height: 30vh;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.footerContainer section:first-child input {
-  padding: 12px 80px 12px 20px;
-  border: none;
-  outline: none;
-  border-radius: 20px;
-  width: 80%;
-}
-
-.footerContainer section:first-child button {
-  padding: 12px 20px;
-  border: none;
-  outline: none;
-  border-radius: 20px;
-  color: var(---white);
-  background-color: var(--primary);
-  margin-left: -70px;
-}
-
-.footerContainer section:nth-child(2) {
-  width: 100%;
-  padding: 20px 100px;
-  background-color: var(--primary);
-  min-height: 10vh;
+.footerContainer section div .payment-method {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  color: var(--white);
+  justify-content: space-between;
+  display: inline;
 }
 
-.footerContainer section:nth-child(2) img {
-  height: 5vh;
+.payment-method img {
+  width: 90px;
+  height: 54px;
+  margin-right: 32px;
+}
+
+.footerContainer section div h2 {
+  color: var(--primary);
+  font-size: 24px;
+  line-height: 31px;
+  font-weight: 600;
+}
+
+.footerContainer section div p {
+  color: var(--white);
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: normal;
 }

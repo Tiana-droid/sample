@@ -1,177 +1,177 @@
-import React, { ChangeEvent } from "react";
-import NavBar from "../components/navBar";
-import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
-import "../styles/signup.css";
-import { Link } from "react-router-dom";
-import { FiEye, FiEyeOff } from "react-icons/fi";
-import { RegisterApi, EmailVerify } from "../apis";
-import { GoMailRead } from "react-icons/go";
+import React, { ChangeEvent } from "react"
+import NavBar from "../components/navBar"
+import { useLocation } from "react-router-dom"
+import { useState, useEffect } from "react"
+import "../styles/signup.css"
+import { Link } from "react-router-dom"
+import { FiEye, FiEyeOff } from "react-icons/fi"
+import { RegisterApi, EmailVerify } from "../apis"
+import { GoMailRead } from "react-icons/go"
 // import { BsCheck2Square } from "react-icons/bs";
 
 type FormErrors = {
-  fullName?: string;
-  email?: string;
-  password?: string;
-  checkbox?: string;
-};
+  fullName?: string
+  email?: string
+  password?: string
+  checkbox?: string
+}
 
 type SignUpFormT = {
-  fullName: string;
-  email: string;
-  password: string;
-  checkbox: string;
-};
+  fullName: string
+  email: string
+  password: string
+  checkbox: string
+}
 
 const SignUp = () => {
-  const location = useLocation();
+  const location = useLocation()
   // console.log(location);
-  const [type, setType] = useState(location.state);
-  const [passwordType, setPasswordType] = useState<string>("");
+  const [type, setType] = useState(location.state)
+  const [passwordType, setPasswordType] = useState<string>("")
   const [form, setForm] = useState<SignUpFormT>({
     fullName: "",
     email: "",
     password: "",
     checkbox: "",
-  });
-  const [btnDisable, setBtnDisable] = useState<boolean>(false);
-  const [verifyBtnDisable, setVerifyBtnDisable] = useState<boolean>(false);
-  const [verifyEmailModal, setVerifyEmailModal] = useState<boolean>(false);
-  const [token, setToken] = useState<string>("");
+  })
+  const [btnDisable, setBtnDisable] = useState<boolean>(false)
+  const [verifyBtnDisable, setVerifyBtnDisable] = useState<boolean>(false)
+  const [verifyEmailModal, setVerifyEmailModal] = useState<boolean>(false)
+  const [token, setToken] = useState<string>("")
 
-  const [formErrors, setFormErrors] = useState<FormErrors>({});
+  const [formErrors, setFormErrors] = useState<FormErrors>({})
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setForm((prevState) => ({
       ...prevState,
       [name]: value,
-    }));
-  };
+    }))
+  }
 
-  const toggleCheckbox = () => setForm(prevState =>({
-    ...prevState,
-    checkbox: prevState.checkbox === 'true' ? 'false' : 'true'
-  }))
+  const toggleCheckbox = () =>
+    setForm((prevState) => ({
+      ...prevState,
+      checkbox: prevState.checkbox === "true" ? "false" : "true",
+    }))
 
   const submitForm = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    const formErrors: FormErrors = {};
-    const { fullName, email, password, checkbox } = form;
+    e.preventDefault()
+    const formErrors: FormErrors = {}
+    const { fullName, email, password, checkbox } = form
 
     var pattern = new RegExp(
       "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-+_!@#$%^&*.,?]).+$"
-    );
+    )
 
     if (fullName === "" || fullName.length < 6) {
       formErrors.fullName =
-        "Full name is required and must be six characters and more";
+        "Full name is required and must be six characters and more"
     }
     if (email === "" || !email.includes(".") || !email.includes("@")) {
       formErrors.email =
-        "Please enter your email in this format 'example@gmail.com'";
+        "Please enter your email in this format 'example@gmail.com'"
     }
     if (password === "" || password.length < 8 || !pattern.test(password)) {
       formErrors.password =
-        "Password must have at least 8 character that include at least 1 lowercase, 1 uppercase, 1 digit and 1 special character";
+        "Password must have at least 8 character that include at least 1 lowercase, 1 uppercase, 1 digit and 1 special character"
     }
 
     if (!checkbox) {
-      formErrors.checkbox = "You must agree to our terms in order to continue";
+      formErrors.checkbox = "You must agree to our terms in order to continue"
     }
-    setFormErrors(formErrors);
+    setFormErrors(formErrors)
     if (!Object.keys(formErrors).length) {
-      submitRegister();
+      submitRegister()
     }
-  };
-
+  }
 
   const submitRegister = async () => {
-    const { fullName, email, password } = form;
-    let result = await RegisterApi(fullName, email, password);
-    console.log(result);
-    setBtnDisable(false);
+    const { fullName, email, password } = form
+    let result = await RegisterApi(fullName, email, password)
+    console.log(result)
+    setBtnDisable(false)
 
     if (result.status === 200) {
-      setToken(result.data.token);
-      localStorage.setItem("cityXplorer_user", JSON.stringify(result.data));
-      setVerifyEmailModal(true);
-      focusInputsAuto(0);
+      setToken(result.data.token)
+      localStorage.setItem("cityXplorer_user", JSON.stringify(result.data))
+      setVerifyEmailModal(true)
+      focusInputsAuto(0)
     } else {
       if (result.response.data === undefined) {
-        console.log("An error occurred, please try again!");
+        console.log("An error occurred, please try again!")
       } else {
-        console.log("error");
+        console.log("error")
       }
     }
-  };
+  }
 
   const verifyEmail = async () => {
-    setVerifyBtnDisable(true);
-    let verifyCode = "";
+    setVerifyBtnDisable(true)
+    let verifyCode = ""
 
     const verifyInputs: any = document.querySelectorAll(
       ".verifyInput"
-    ) as NodeListOf<HTMLInputElement>;
+    ) as NodeListOf<HTMLInputElement>
     for (let i = 0; i < verifyInputs.length; i++) {
       if (verifyInputs[i].value === "") {
-        verifyInputs[i].style.borderColor = "red";
-        setVerifyBtnDisable(false);
-        return;
+        verifyInputs[i].style.borderColor = "red"
+        setVerifyBtnDisable(false)
+        return
       } else {
-        verifyCode += String(verifyInputs[i].value);
+        verifyCode += String(verifyInputs[i].value)
       }
     }
-    console.log(verifyCode);
-    const { fullName, email, password } = form;
+    console.log(verifyCode)
+    const { fullName, email, password } = form
     let result: any = await EmailVerify(
       fullName,
       email,
       password,
       verifyCode,
       token
-    );
-    console.log(result);
-    setVerifyBtnDisable(false);
+    )
+    console.log(result)
+    setVerifyBtnDisable(false)
     if (result.status === 200) {
-      console.log("verified");
+      console.log("verified")
     } else {
-      console.log("error verify");
+      console.log("error verify")
     }
-  };
+  }
 
   const changePasswordType = () => {
-    if (passwordType === "password") return setPasswordType("text");
-    setPasswordType("password");
-  };
+    if (passwordType === "password") return setPasswordType("text")
+    setPasswordType("password")
+  }
 
   const focusInputsAuto = (index: number) => {
     const verifyInputs: any = document.querySelectorAll(
       ".verifyInput"
-    ) as NodeListOf<HTMLInputElement>;
+    ) as NodeListOf<HTMLInputElement>
     try {
       if (index > 0) {
         if (isNaN(verifyInputs[index - 1].value))
-          verifyInputs[index - 1].value = "";
-        if (verifyInputs[index - 1].value) verifyInputs[index].focus();
+          verifyInputs[index - 1].value = ""
+        if (verifyInputs[index - 1].value) verifyInputs[index].focus()
       } else {
-        verifyInputs[index].focus();
+        verifyInputs[index].focus()
       }
     } catch (error) {
       //console.log(error);
       for (let input of verifyInputs) {
-        input.blur();
+        input.blur()
       }
     }
-  };
+  }
 
   useEffect(() => {
     if (location.state === null) {
-      setType("buyer");
+      setType("buyer")
     } else {
-      setType(location.state);
+      setType(location.state)
     } // console.log(type);
-  }, [location.state]);
+  }, [location.state])
 
   return (
     <>
@@ -412,7 +412,7 @@ const SignUp = () => {
         </div> */}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default SignUp

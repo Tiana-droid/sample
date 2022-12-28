@@ -1,41 +1,194 @@
 .howWeOperateContainer {
-    padding: 20px 100px;
-    min-height: 80vh;
-    text-align: center;
+  min-height: 80vh;
+  margin-bottom: 150px;
 }
 
 .howWeOperateContainer h1 {
-    color: var(--primary);
-    font-size: 30px;
-    margin-bottom: 10px;
+  color: #1b1c1e;
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: bold;
 }
 
 .howWeOperateContainer h4 {
-    margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: normal;
+  color: #1b1c1e;
 }
 
-.howWeOperateCardsContainer {
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
-    grid-gap: 50px;
+.howWeOperateContainer .topLayer img {
+  width: 374px;
+  height: 34.94px;
 }
 
-.howWeOperateCardsContainer section {
-    width: 100%;
-    height: 49vh;
-    border-radius: 10px;
-    background-color: var(--white);
-    box-shadow: 0px 0px 10px #ddd;
+.flex-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.howWeOperateCardsContainer section p {
-    text-align: center;
+.maylike-products-wrapper {
+  margin-top: 10px;
 }
 
-.howWeOperateCardsContainer section img {
-    width: 100%;
-    height: 40vh;
-    margin-top: 0px;
-    margin-bottom: 2vh;
+.maylike-products-container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 10px;
+}
+.track {
+  animation: marquee 10s linear infinite;
+  width: 550px;
 }
 
+.marquee {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.track {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 15s linear infinite;
+  width: 180%;
+}
+.track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+  }
+}
+
+.product-card {
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+  color: #324d67;
+}
+
+.product-card img {
+  width: 59px;
+  height: 69.93px;
+}
+.product-card:hover {
+  transform: scale(1.1, 1.1);
+}
+.product-image {
+  border-radius: 15px;
+  background-color: #ebebeb;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+}
+
+.howWeOperateContainer .howWeOperateBottomLayer {
+  background-color: rgba(252, 235, 218, 0.24);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: -200px;
+}
+
+.howWeOperateContainer .howWeOperateBottomLayer h1 {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 54px;
+  text-align: center;
+}
+.typography {
+  width: 532px;
+}
+
+.howWeOperateContainer .howWeOperateBottomLayer p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+}
+.howWeOperateContainer .howWeOperateBottomLayer .howWeOperateBottomLayerflex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 91px;
+  gap: 215px;
+}
+
+.howWeOperateContainer
+  .howWeOperateBottomLayer
+  .howWeOperateBottomLayerflex
+  h1 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #1b1c1e;
+  text-align: left;
+}
+.howWeOperateContainer
+  .howWeOperateBottomLayer
+  .howWeOperateBottomLayerflex
+  h3 {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 68px;
+}
+
+.carousel img {
+  width: 476px;
+  height: 541px;
+  transition: transform 2s ease-in-out;
+  will-change: transform;
+  -webkit-transition: transform 2s e;
+  -moz-transition: transform 2s e;
+  -ms-transition: transform 2s e;
+  -o-transition: transform 2s e;
+}
+
+.howWeOperateContainer
+  .howWeOperateBottomLayer
+  .howWeOperateBottomLayerflex
+  h6 {
+  background-color: black;
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 48px;
+}
+
+.stages-description {
+  display: flex;
+  flex-direction: column;
+  gap: 108px;
+}

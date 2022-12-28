@@ -1,60 +1,28 @@
-.dualShoppingRestaurantContainer {
-  padding: 20px 100px;
-  width: 100%;
-  min-height: 80vh;
+.downloadSection-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 150px 0;
+}
+
+.downloadSection-container h1 {
+  width: 374px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.downloadSection-base {
   display: flex;
   align-items: center;
-  background-color: var(--primary-transparent);
+  justify-content: center;
+  gap: 51px;
+  margin-top: 27.53px;
 }
 
-.dualShoppingRestaurantContainer section {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.dualShoppingRestaurantContainer div {
-  flex: 50%;
-}
-
-.dualShoppingRestaurantContainer div:first-child {
-  padding-left: 100px;
-}
-
-.dualShoppingRestaurantContainer div:first-child p {
-  margin: 10px 0px;
-}
-
-.dualShoppingRestaurantContainer div:first-child button {
-  background-color: var(--primary);
-  border: none;
-  outline: none;
-  color: var(--white);
-  padding: 10px 30px;
-  width: 360px;
-  margin: 10px 0px;
-  border-radius: 25px;
-  font-size: 15px;
-  /* box-shadow: 0px 0px 20px -8px grey; */
-  cursor: pointer;
-  transition: box-shadow 0.3s;
-}
-
-.dualShoppingRestaurantContainer div:first-child button:hover {
-  box-shadow: var(--button-hover-shadow);
-}
-
-.dualShoppingRestaurantContainer div h1 {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-.dualShoppingRestaurantContainer div img {
-  width: 400px;
-}
-
-.active {
-  color: var(--primary);
+.downloadSection-base img {
+  width: 374px;
+  height: 145px;
 }

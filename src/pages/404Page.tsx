@@ -1,5 +1,5 @@
-import "../styles/404Page.css";
-import { Link } from "react-router-dom";
+import "../styles/404Page.css"
+import { Link } from "react-router-dom"
 
 const Page404 = () => {
   return (
@@ -10,7 +10,7 @@ const Page404 = () => {
         <button>Go Back Home</button>
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default Page404;
+export default Page404

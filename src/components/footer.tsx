@@ -1,78 +1,82 @@
-import React from "react";
-import "../styles/footer.css";
-import { BiPhoneCall, BiMailSend, BiLocationPlus } from "react-icons/bi";
-
+import React from "react"
+import "../styles/footer.css"
+import { BiPhoneCall, BiMailSend, BiLocationPlus } from "react-icons/bi"
+import phone from "../assets/Phone.png"
+import location from "../assets/location.png"
+import mail from "../assets/mail.png"
+import masterCard from "../assets/mastercard.png"
+import visa from "../assets/visa.png"
+import payPal from "../assets/paypal.png"
+import stripe from "../assets/stripe.png"
 const Footer = () => {
-
   return (
     <div className="footerContainer">
       <section>
         <div>
-          <h2>Want To Know More?</h2>
-          <p>About Us</p>
-          <p>Contact Us</p>
-          <p>Privacy & Return Policy</p>
-          <p>Terms & Conditions</p>
+          <h2>Contact Info:</h2>
+          <p>
+            <img
+              src={phone}
+              alt="phone"
+              style={{
+                marginRight: 10,
+                marginBottom: -5,
+                height: 18,
+                width: 18,
+              }}
+            />
+            +1 (615) 668-7715
+          </p>
+
+          <p>
+            <img
+              src={location}
+              alt="phone"
+              style={{
+                marginRight: 10,
+                marginBottom: -5,
+                height: 18,
+                width: 18,
+              }}
+            />
+            US
+          </p>
+          <p>
+            <img
+              src={mail}
+              alt="phone"
+              style={{
+                marginRight: 10,
+                marginBottom: -5,
+                height: 18,
+                width: 18,
+              }}
+            />
+            info@cityxplorer.io
+          </p>
         </div>
         <div>
-          <h2>Contact Us</h2>
-          <p>
-            <BiPhoneCall
-              size={20}
-              style={{
-                color: "var(--primary)",
-                marginRight: 10,
-                marginBottom: -5,
-              }}
-            />
-            931-26-1138
-          </p>
-          <p>
-            <BiMailSend
-              size={20}
-              style={{
-                color: "var(--primary)",
-                marginRight: 10,
-                marginBottom: -5,
-              }}
-            />
-            atfahina@gmail.com
-          </p>
-          <p>
-            <BiLocationPlus
-              size={20}
-              style={{
-                color: "var(--primary)",
-                marginRight: 10,
-                marginBottom: -5,
-              }}
-            />
-            Nashville City, Tennessee State
-          </p>
+          <h2>Stores We Serve</h2>
+          <p>African & carribbean</p>
+          <p>Indian </p>
+          <p>Middle Eastern</p>
+          <p>Asian</p>
+          <p>Hispanic</p>
+          <p>European</p>
         </div>
+
         <div>
-          <h2>Newsletter</h2>
-          <p>Subscribe To Our Newsletter Today!</p>
-          <p className="active">Enjoy our update and top deals frequently.</p>
-          <p>
-            <input placeholder="Email Address" type="email" />
-            <button>Subscribe</button>
-          </p>
+          <h2>Payment Methods</h2>
+          <div className="payment-method">
+            <img src={masterCard} alt="mastercard" />
+            <img src={visa} alt="visa" />
+            <img src={payPal} alt="payPal" />
+            <img src={stripe} alt="stripe" />
+          </div>
         </div>
-      </section>
-      <section>
-        <p>
-          © 2022 Copyright{" "}
-          <span style={{ color: "var(--black)", fontFamily: "cursive" }}>
-            City
-          </span>
-          <span style={{ fontFamily: "cursive" }}>Xplorer</span>, All Rights
-          Reserved.
-        </p>
-        <img src={require("../assets/image 47.png")} alt="cards" />
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
