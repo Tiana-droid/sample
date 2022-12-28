@@ -72,7 +72,7 @@ const NavBar = (props: Props) => {
 
   const styles = {
     well: {
-      boxShadow: "0 0 0 4px rgba(0, 0, 0, 0.2)",
+      boxShadow: "0 0 0 1px rgba(0, 0, 0, 0.2)",
     },
   }
 
