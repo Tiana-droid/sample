@@ -3,20 +3,19 @@
   width: 100%;
 }
 
-.footerContainer section:first-child {
+.footerContainer section {
   width: 100%;
   padding: 38px 103px;
-  background-color: var(--black);
+  background-color: #1b1c1e;
   min-height: 50vh;
-  display: grid;
-  grid-template-columns: 20% 20% 45%;
-  grid-gap: 173px;
+  display: flex;
+  justify-content: space-between;
   color: var(--white);
 }
 .footerContainer section:first-child div {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  gap: 50px;
 }
 
 .footerContainer section div .payment-method {
@@ -44,4 +43,42 @@
   font-size: 16px;
   line-height: 20px;
   font-weight: normal;
+}
+
+@media (max-width: 970px) {
+  .payment-method img {
+    width: 28px;
+    height: 16px;
+  }
+  .footerContainer section {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 0;
+    margin-bottom: 20px;
+    gap: 45.5px;
+    min-height: 100vh;
+  }
+  .footerContainer section:first-child div {
+    gap: 35px;
+  }
+}
+
+@media (max-width: 951px) {
+  .payment-method img {
+    width: 28px;
+    height: 16px;
+  }
+  .footerContainer section {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 0;
+    margin-bottom: 20px;
+    gap: 45.5px;
+    min-height: 100vh;
+  }
+  .footerContainer section:first-child div {
+    gap: 35px;
+  }
 }

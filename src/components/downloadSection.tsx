@@ -1,4 +1,4 @@
-import "../styles/dualShoppingRestaurant.css"
+import "../styles/download.scss"
 import google from "../assets/Googleplay.png"
 import apple from "../assets/App.png"
 const downloadSection = () => {

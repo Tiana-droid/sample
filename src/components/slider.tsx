@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react"
-import "../styles/howWeOperate.css"
+import "../styles/howWeOperate.scss"
 
 import slide1 from "../assets/stepsSlide1.png"
-import slide2 from "../assets/stepsSlide2.png"
+import slide2 from "../assets/slide3.png"
 import slide3 from "../assets/slider3.png"
 
 function ImageSlider() {
   const [index, setIndex] = useState(0)
   const images = [slide1, slide2, slide3]
 
-  const interval = 6000 // 3 seconds
+  const interval = 5000 // 3 seconds
 
   useEffect(() => {
     const timer = setInterval(() => {

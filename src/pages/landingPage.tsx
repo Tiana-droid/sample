@@ -1,4 +1,4 @@
-import DualShoppingGrocery from "../components/dualShoppingGrocery"
+import DualShoppingGrocery from "../components/FAQ"
 import DownloadSection from "../components/downloadSection"
 import Footer from "../components/footer"
 import HeroSection from "../components/heroSection"
@@ -8,7 +8,7 @@ import NavBar from "../components/navBar"
 const LandingPage = () => {
   return (
     <div>
-      <NavBar page="home" />
+      <NavBar page="home" type="primary" />
       <HeroSection />
       <HowWeOperate />
       <DualShoppingGrocery />

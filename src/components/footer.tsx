@@ -30,19 +30,6 @@ const Footer = () => {
 
           <p>
             <img
-              src={location}
-              alt="phone"
-              style={{
-                marginRight: 10,
-                marginBottom: -5,
-                height: 18,
-                width: 18,
-              }}
-            />
-            US
-          </p>
-          <p>
-            <img
               src={mail}
               alt="phone"
               style={{
@@ -65,7 +52,7 @@ const Footer = () => {
           <p>European</p>
         </div>
 
-        <div>
+        <div className="payment-container">
           <h2>Payment Methods</h2>
           <div className="payment-method">
             <img src={masterCard} alt="mastercard" />

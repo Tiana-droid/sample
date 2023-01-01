@@ -1,13 +1,9 @@
-.heroSectionContainer {
-  width: 100%;
+ .heroSectionContainer {
+  width: 100vw;
   min-height: 90vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.heroSectionContainer div {
-  flex: 50%;
 }
 
 .heroSectionContainer div:first-child {
@@ -16,7 +12,7 @@
 }
 
 .heroSectionContainer div:first-child p {
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .heroSectionContainer div:first-child button {
@@ -26,12 +22,13 @@
   color: var(--white);
   padding: 10px 30px;
   width: 192px;
-  height: 68px;
+  height: 52px;
   font-size: 15px;
   margin-left: 8px;
   /* box-shadow: 0px 0px 20px -8px grey; */
   cursor: pointer;
   transition: box-shadow 0.3s;
+  margin-right: 24px;
 }
 
 .heroSectionContainer div:first-child button:hover {
@@ -95,7 +92,7 @@ p {
   -o-border-radius: 50px;
   background-color: #ff7d05;
   position: absolute;
-  z-index: 100;
+
   bottom: 0;
   right: 0;
   display: flex;
@@ -110,4 +107,60 @@ p {
 
 .heroSectionContainer h1 {
   font-weight: 600;
+}
+
+@media (max-width: 970px) {
+  .heroSectionContainer {
+    flex-direction: column;
+  }
+  h2 {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 12px;
+    margin-left: 24px;
+  }
+  .heroSectionContainer div h1 {
+    font-size: 24px;
+    line-height: 36px;
+    margin-left: 24px;
+  }
+  p {
+    font-size: 12px;
+    line-height: 18px;
+    margin-left: 24px;
+  }
+  .heroSectionContainer .chatbot-container img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .heroSectionContainer .down-container {
+    position: relative;
+  }
+
+  .heroSectionContainer .chatbot-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .heroSectionContainer div:first-child {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+  }
+
+  .heroSectionContainer div:nth-child(2) {
+    margin-right: 10px;
+  }
+  input {
+    width: 231px;
+    height: 50px;
+  }
 }

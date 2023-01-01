@@ -4,7 +4,7 @@ import NavBar from "../components/navBar"
 const SuggestStorePage = () => {
   return (
     <div>
-      <NavBar page={"account"} />
+      <NavBar page={"account"} type="primary" />
 
       <div
         style={{

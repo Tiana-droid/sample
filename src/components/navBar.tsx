@@ -8,6 +8,14 @@ import { TextField } from "@mui/material"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
+import { HiMenuAlt4, HiX } from "react-icons/hi"
+import { GiHamburgerMenu } from "react-icons/gi"
+import "../styles/navbar.scss"
+import { motion } from "framer-motion"
+import { GrHomeRounded } from "react-icons/gr"
+import { BsPerson } from "react-icons/bs"
+import { BsQuestionLg } from "react-icons/bs"
+import { RiErrorWarningLine, RiHomeLine } from "react-icons/ri"
 
 interface Props {
   page:
@@ -19,26 +27,27 @@ interface Props {
     | "subscription"
     | "contact"
     | "merchant"
+
+  type: string
 }
 
 const NavBar = (props: Props) => {
   const [showDiv, setshowDiv] = useState("none")
+  const [toggle, setToggle] = useState(false)
 
   const [name, setName] = React.useState("")
   const [city, setCity] = React.useState("")
   const [email, setEmail] = React.useState("")
   const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
+  const handleOpen = () => {
+    setOpen(true)
+    setToggle(false)
+  }
 
-  const navigate = useNavigate()
-  const [overflow, setOverflow] = React.useState(true)
+  const handleClose = () => {
+    setOpen(false)
+  }
 
-  const handleClose = () => setOpen(false)
-
-  //   const shopRef = useRef<HTMLDivElement | null>(null);
-  //   const accountRef = useRef<HTMLDivElement | null>(null);
-  //   const categoryRef = useRef<HTMLDivElement | null>(null);
-  //   const subscriptionRef = useRef<HTMLDivElement | null>(null);
   const shop = useRef<HTMLLIElement | null>(null)
   const account = useRef<HTMLLIElement | null>(null)
   const category = useRef<HTMLLIElement | null>(null)
@@ -81,50 +90,67 @@ const NavBar = (props: Props) => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: 300,
     bgcolor: "background.paper",
     boxShadow: 24,
     p: 4,
   }
   const handleSubmit = () => {
-    axios
-      .post(
-        "https://city-xplorer-api.herokuapp.com/api/v1/suggestion/suggest-store",
-        { name, email, city }
-      )
-      .then((response) => {
-        toast.success(response.data.message, {
-          position: "top-right",
-          style: {
-            width: "320px",
-            height: "100px",
-            backgroundColor: "#fff",
-            color: "#61181E",
-            fontSize: 18,
-            fontWeight: "bold",
-          },
-          icon: "👏",
-          duration: 3000,
-          iconTheme: {
-            primary: "#000",
-            secondary: "#61181E",
-          },
-        })
-        setOpen(false)
+    if (city === "" || email === "") {
+      toast.error("Enter all required fields", {
+        position: "top-right",
+        style: {
+          width: "600",
+          height: "100px",
+          backgroundColor: "#fff",
+          color: "#61181E",
+          fontSize: 18,
+          fontWeight: "bold",
+        },
       })
-      .catch((error) => {
-        toast.error("You are already on the waitlist", {
-          position: "top-right",
-          style: {
-            width: "600",
-            height: "100px",
-            backgroundColor: "#fff",
-            color: "#61181E",
-            fontSize: 18,
-            fontWeight: "bold",
-          },
+    } else {
+      axios
+        .post(
+          "https://city-xplorer-api.herokuapp.com/api/v1/suggestion/suggest-store",
+          { name, email, city }
+        )
+        .then((response) => {
+          toast.success(response.data.message, {
+            position: "top-right",
+            style: {
+              width: "320px",
+              height: "100px",
+              backgroundColor: "#fff",
+              color: "#61181E",
+              fontSize: 18,
+              fontWeight: "bold",
+            },
+            icon: "👏",
+            duration: 3000,
+            iconTheme: {
+              primary: "#000",
+              secondary: "#61181E",
+            },
+          })
+          setOpen(false)
+          setName("")
+          setCity("")
+          setEmail("")
         })
-      })
+        .catch((error) => {
+          toast.error("You are already on the waitlist", {
+            position: "top-right",
+            style: {
+              width: "600",
+              height: "100px",
+              backgroundColor: "#fff",
+              color: "#61181E",
+              fontSize: 18,
+              fontWeight: "bold",
+            },
+          })
+        })
+    }
   }
 
   return (
@@ -137,19 +163,13 @@ const NavBar = (props: Props) => {
             </Link>
           </div>
 
-          <ul>
+          <ul className="links-wrapper">
             <li className={props.page === "home" ? "active" : "li"}>
               <Link to="/">Home</Link>
             </li>
 
             <li className={props.page === "shop" ? "active" : "li"} ref={shop}>
-              How it works
-              <div className={showDiv === "shop" ? "showDiv" : "hideDiv"}>
-                <ol>
-                  <li>Restaurant</li>
-                  <li>Grocery</li>
-                </ol>
-              </div>
+              <a href={`#howWeOperate`}>How it works</a>
             </li>
             <li
               className={props.page === "account" ? "active" : "li"}
@@ -161,30 +181,82 @@ const NavBar = (props: Props) => {
               className={props.page === "category" ? "active" : "li"}
               ref={category}
             >
-              FAQs
-              <div className={showDiv === "category" ? "showDiv" : "hideDiv"}>
-                <ol>
-                  <li>Cereal Grain</li>
-                  <li>Cooking Oil</li>
-                  <li>Seasoning And Spices</li>
-                  <li>Vegetables And Fruits</li>
-                  <li>Protein (Fish $ Meat)</li>
-                  <li>Tubers</li>
-                  <li>Floor</li>
-                  <li>Canned Food</li>
-                  <li>Snacks</li>
-                  <li>Cooked Food</li>
-                </ol>
-              </div>
+              <a href="#faqs"> FAQs</a>
             </li>
             <li
               className={props.page === "about" ? "active" : "li"}
-              id="sugestAStore"
               onClick={handleOpen}
+              id="sugestAStore"
             >
               Suggest a store
             </li>
           </ul>
+
+          <div className="app__navbar-menu">
+            <GiHamburgerMenu onClick={() => setToggle(true)} />
+
+            {toggle && (
+              <motion.div
+                whileInView={{ x: [300, 0] }}
+                transition={{ duration: 0.85, ease: "easeOut" }}
+              >
+                <img
+                  src={require("../assets/logo.png")}
+                  alt="logo"
+                  className="top-image"
+                />
+                <ul>
+                  <li className={props.page === "home" ? "active" : "li"}>
+                    <Link to="/">
+                      <h6>
+                        <RiHomeLine />
+                      </h6>
+                      <h6> Home</h6>
+                    </Link>
+                  </li>
+
+                  <li className={props.page === "home" ? "active" : "li"}>
+                    <a href={`#howWeOperate`} onClick={() => setToggle(false)}>
+                      <h6>
+                        <RiErrorWarningLine />
+                      </h6>
+                      <h6> How we work</h6>
+                    </a>
+                  </li>
+                  <li
+                    className={props.page === "account" ? "active" : "li"}
+                    ref={account}
+                  >
+                    <Link to="/merchant">
+                      <h6>
+                        <BsPerson />
+                      </h6>
+                      <h6> Merchants</h6>
+                    </Link>
+                  </li>
+                  <li className={props.page === "home" ? "active" : "li"}>
+                    <a href={`#faqs`} onClick={() => setToggle(false)}>
+                      <h6>
+                        <BsQuestionLg />
+                      </h6>
+                      <h6>FAQS</h6>
+                    </a>
+                  </li>
+                  <hr
+                    style={{ width: "100%", height: "1px", color: "#ABACA5" }}
+                  />
+
+                  <li
+                    className={props.page === "about" ? "active" : "li"}
+                    onClick={handleOpen}
+                    id="mobile-suggest-store"
+                  >
+                    Suggest a store
+                  </li>
+                </ul>
+              </motion.div>
+            )}
+          </div>
         </section>
       </div>
       <Modal
@@ -229,8 +301,8 @@ const NavBar = (props: Props) => {
           />
           <button
             style={{
-              width: "335px",
-              height: "58px",
+              width: "235px",
+              height: "50px",
               backgroundColor: "rgba(255, 125, 5, 1)",
               border: "0px",
               color: "white",

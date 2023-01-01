@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import "../styles/dualShoppingGrocery.css"
+import "../styles/faq.scss"
 import caret from "../assets/caretDown.png"
 import close from "../assets/caretUp.png"
 
@@ -76,11 +76,11 @@ const FAQ = () => {
   ]
 
   return (
-    <div className="FAQ-container">
+    <div className="FAQ-container" id="faqs">
       <h1>Frequently Asked Questions</h1>
       {questions.map((question, index) => (
         <div key={index} className="form-group">
-          <button>
+          <button style={{ borderWidth: open ? "0.1px" : "1px" }}>
             <p>{question.question}</p>
             <img
               src={!open ? close : caret}

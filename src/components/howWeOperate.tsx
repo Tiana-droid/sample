@@ -1,4 +1,4 @@
-import "../styles/howWeOperate.css"
+import "../styles/howWeOperate.scss"
 
 import img2 from "../assets/slide2.png"
 import img17 from "../assets/slide17.png"
@@ -60,7 +60,7 @@ const HowWeOperate = () => {
       <div className="topLayer flex-around">
         <h1>Ibex MiniMart</h1>
         <img src={require("../assets/nico.png")} alt="ibex" />
-        <h4>more stores coming soon...</h4>
+        <h4>&lots more...</h4>
       </div>
       <div className="howWeOperateCardsContainer">
         <div className="maylike-products-wrapper">
@@ -80,21 +80,47 @@ const HowWeOperate = () => {
             </div>
           </div>
         </div>
-        <div className="howWeOperateBottomLayer">
-          <div className="typography">
-            <h1>How we operate with just three seamless steps</h1>
+
+        <div className="howWeOperateBottomLayer" id="howWeOperate">
+          <div>
+            <h1>
+              How we operate with just <br /> three seamless steps
+            </h1>
             <p>
-              For quick and easy access to our mobile application, follow this
-              three steps:
+              For quick and easy access to our mobile <br /> application, follow
+              this three steps:
             </p>
           </div>
           <div className="howWeOperateBottomLayerflex">
             <div className="stages-description">
-              {steps.map((step) => (
+              {steps.map((step, index) => (
                 <div key={step.step} className="flex">
                   <div className="stage">
-                    {" "}
-                    <h6>{step.step}</h6>
+                    <div className="stage-container">
+                      <h6 style={{ position: "relative" }}>{step.step}</h6>
+                    </div>
+                    {index !== 2 && (
+                      <div
+                        className="border__stage__description"
+                        style={{
+                          borderLeft: "2px dashed #000",
+                          height: "13.5%",
+                          position: "absolute",
+                          left: "8.5%",
+                        }}
+                      />
+                    )}
+                    {index !== 2 && (
+                      <div
+                        className="mobile__border__stage__description"
+                        style={{
+                          borderLeft: "2px dashed #000",
+                          height: "68px",
+                          position: "absolute",
+                          left: "11vw",
+                        }}
+                      />
+                    )}
                   </div>
                   <div className="details">
                     <h1>{step.title}</h1>
@@ -113,3 +139,12 @@ const HowWeOperate = () => {
 }
 
 export default HowWeOperate
+
+// .dotted-line::before {
+//   content: "";
+//   border-top: 1px dotted black;
+//   width: 100%;
+//   position: absolute;
+//   top: 50%;
+//   left: 0;
+// }

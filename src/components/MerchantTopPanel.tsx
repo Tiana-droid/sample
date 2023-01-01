@@ -80,7 +80,7 @@ const MerchantTopPanel = () => {
         <h2>Relax and enjoy more sales.</h2>
         <h3>What you can expect:</h3>
         <ul>
-          <li>Increased sales with oline ordering and delivery ,</li>
+          <li>Increased sales with online ordering and delivery ,</li>
           <li>
             Fast onboarding and simple administration so that you can focus on
             selling groceries

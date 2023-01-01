@@ -7,12 +7,12 @@ import "../styles/merchantpage.css"
 
 const MerchantPage = () => {
   return (
-    <>
-      <NavBar page={"account"} />
+    <div>
+      <NavBar page={"account"} type="primary" />
       <MerchantTopPanel />
       <MerchantBottomPanel />
       <Footer />
-    </>
+    </div>
   )
 }
 

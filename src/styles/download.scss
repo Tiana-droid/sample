@@ -7,7 +7,6 @@
 }
 
 .downloadSection-container h1 {
-  width: 374px;
   text-align: center;
   font-weight: 600;
   font-size: 40px;
@@ -26,3 +25,18 @@
   width: 374px;
   height: 145px;
 }
+
+@media (max-width: 970px) {
+  .downloadSection-container h1 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .downloadSection-base img {
+    width: 135px;
+    height: 52px;
+  }
+  .downloadSection-container {
+    margin-top: 40px;
+  }
+}
+

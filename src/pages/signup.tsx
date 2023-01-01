@@ -176,7 +176,7 @@ const SignUp = () => {
   return (
     <>
       <div>
-        <NavBar page={"account"} />
+        <NavBar page={"account"} type="primary" />
         <div className="signUpContainer">
           <h2>Create an account</h2>
           <br />

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import "../styles/heroSection.scss"
 
 interface props {
   placeholder: string
@@ -18,8 +19,8 @@ const CustomTextInput: React.FC<props> = ({
   handleChange,
 }) => {
   const styles = {
-    width: `${width}px` || `${width}`,
-    height: `${height}px`,
+    width: width ? `${width}px` : `231px`,
+    height: height ? `${height}px` : `52px`,
     borderWidth: 1,
     borderColor: borderColor,
     padding: 5,
@@ -33,6 +34,7 @@ const CustomTextInput: React.FC<props> = ({
       type="text"
       value={inputValue}
       onChange={handleChange}
+      className="input-tag"
     />
   )
 }

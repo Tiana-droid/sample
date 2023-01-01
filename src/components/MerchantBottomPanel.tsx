@@ -21,7 +21,7 @@ const MerchantBottomPanel = () => {
   return (
     <div className="topPanelContainer">
       <div className="bottompanel-left">
-        <h2>Grt Started Today!</h2>
+        <h2>Get Started Today!</h2>
         <h3>Take advantage of our inventory management software:</h3>
         <ul>
           <li>
@@ -53,7 +53,7 @@ const MerchantBottomPanel = () => {
             <div>
               <CustomTextInput
                 placeholder="Name"
-                width="282"
+                width="330"
                 height="52"
                 borderColor={
                   active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
@@ -65,7 +65,7 @@ const MerchantBottomPanel = () => {
             <div>
               <CustomTextInput
                 placeholder="Title"
-                width="282"
+                width="330"
                 height="52"
                 borderColor={
                   active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
@@ -79,7 +79,7 @@ const MerchantBottomPanel = () => {
             <div>
               <CustomTextInput
                 placeholder="Phone number"
-                width="282"
+                width="330"
                 height="52"
                 borderColor={
                   active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
@@ -91,7 +91,7 @@ const MerchantBottomPanel = () => {
             <div>
               <CustomTextInput
                 placeholder="Email address"
-                width="282"
+                width="330"
                 height="52"
                 borderColor={
                   active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
@@ -106,7 +106,7 @@ const MerchantBottomPanel = () => {
           <div style={{ marginTop: "24px", marginBottom: "24px" }}>
             <CustomTextInput
               placeholder="Email address"
-              width="595"
+              width="330"
               height="52"
               borderColor={
                 active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
@@ -119,7 +119,7 @@ const MerchantBottomPanel = () => {
           <div style={{ marginTop: "24px", marginBottom: "24px" }}>
             <CustomTextInput
               placeholder="Enter store address"
-              width="595"
+              width="330"
               height="52"
               borderColor={
                 active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
@@ -133,7 +133,7 @@ const MerchantBottomPanel = () => {
             <div>
               <CustomTextInput
                 placeholder="Phone number"
-                width="282"
+                width="330"
                 height="52"
                 borderColor={
                   active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
@@ -145,7 +145,7 @@ const MerchantBottomPanel = () => {
             <div>
               <CustomTextInput
                 placeholder="Email address"
-                width="282"
+                width="330"
                 height="52"
                 borderColor={
                   active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"

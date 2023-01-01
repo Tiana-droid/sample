@@ -5,15 +5,31 @@
   flex-direction: column;
 }
 
+.form-group {
+  background-color: var(--white);
+  margin-bottom: 48px;
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: rgba(224, 224, 224, 0.87);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.FAQ-container h1 {
+  margin-bottom: 24px;
+}
+
 .form-group button {
-  width: 1159px;
+  width: 90vw;
   text-align: left;
   height: 84px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--white);
-  border-width: 1px;
   border-color: rgba(224, 224, 224, 0.87);
   border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -28,19 +44,6 @@
   margin-right: 26.65px;
 }
 
-.form-group {
-  background-color: var(--white);
-  margin-bottom: 48px;
-  border-radius: 8px;
-  border-width: 1px;
-  border-color: rgba(224, 224, 224, 0.87);
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
-}
-
 .form-group button p {
   padding-left: 14px;
 }
@@ -51,4 +54,12 @@ li {
 }
 ul {
   margin-bottom: 14px;
+}
+
+@media (max-width: 970px) {
+  .FAQ-container h1 {
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+  }
 }
