@@ -6,6 +6,7 @@ import SignUp from "./pages/signup"
 import { Toaster } from "react-hot-toast"
 import MerchantPage from "./pages/merchantPage"
 import SuggestStorePage from "./styles/SuggestStorePage"
+import Privacy from "./pages/privacy"
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/register" element={<SignUp />} />
           <Route path="/*" element={<Page404 />} />
           <Route path="/suggestStore" element={<SuggestStorePage />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </Router>
     </ProductsProvider>

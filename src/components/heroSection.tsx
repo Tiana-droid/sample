@@ -19,6 +19,9 @@ const HeroSection = () => {
     setInputValue2(event.target.value)
   }
 
+  // const handleClick = () => {
+  //   Tawk_API.maximize()
+  // }
   const handleSubmit = () => {
     const data = {
       name: inputValue,
@@ -117,9 +120,9 @@ const HeroSection = () => {
       </div>
       <div className="down-container">
         <img src={require("../assets/hero image.png")} alt="Food" />
-        <div className="chatbot-container">
+        {/* <div className="chatbot-container" onClick={handleClick}>
           <img src={require("../assets/Chatbot.png")} alt="chat" />
-        </div>
+        </div> */}
       </div>
     </div>
   )

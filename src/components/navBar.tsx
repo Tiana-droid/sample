@@ -16,6 +16,7 @@ import { GrHomeRounded } from "react-icons/gr"
 import { BsPerson } from "react-icons/bs"
 import { BsQuestionLg } from "react-icons/bs"
 import { RiErrorWarningLine, RiHomeLine } from "react-icons/ri"
+import { MdPrivacyTip } from "react-icons/md"
 
 interface Props {
   page:
@@ -178,6 +179,12 @@ const NavBar = (props: Props) => {
               <Link to="/merchant">Merchants</Link>
             </li>
             <li
+              className={props.page === "shop" ? "active" : "li"}
+              ref={account}
+            >
+              <Link to="/privacy">Privacy</Link>
+            </li>
+            <li
               className={props.page === "category" ? "active" : "li"}
               ref={category}
             >
@@ -232,6 +239,17 @@ const NavBar = (props: Props) => {
                         <BsPerson />
                       </h6>
                       <h6> Merchants</h6>
+                    </Link>
+                  </li>
+                  <li
+                    className={props.page === "account" ? "active" : "li"}
+                    ref={account}
+                  >
+                    <Link to="/privacy">
+                      <h6>
+                        <MdPrivacyTip />
+                      </h6>
+                      <h6> Privacy</h6>
                     </Link>
                   </li>
                   <li className={props.page === "home" ? "active" : "li"}>

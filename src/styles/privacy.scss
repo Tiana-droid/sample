@@ -1,0 +1,114 @@
+.privacy-container{
+    margin: 0;
+    padding: 0;
+
+    .privacy-heading{
+        color: black;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+    }.privacy-sub-heading{
+        color: black;
+        font-size: 16px;
+        font-weight: 400;
+        
+    }
+    ol li{
+        list-style-type: decimal;
+        margin-left: 50px;
+        font-weight: bold;
+        font-size: 22px;
+    }
+
+    ol li h6{
+        font-size: 16px;
+        font-weight: 400;
+        margin: 10px 0;
+        margin-left: -20px;
+    }
+
+    ol li h6 span{
+        font-weight: bold;
+    }
+    ol li h6 a
+    {
+        color: #DCA10D;
+        font-size: 12pt;
+        font-weight: bold;
+    }
+    ol li ul li{
+        list-style-type: lower-alpha;
+    }
+    ol h5{
+        font-size: 12pt;
+        font-weight: 400;
+    }
+    ol h5 span{
+        font-weight: bold;
+    }
+    h3, h4{
+        margin-left: -80px;
+        font-weight: 400;
+        font-size: 16px;
+        margin: 10px 0;
+    }
+    h3 span{
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    h3 a{
+        color: #DCA10D;
+        font-size: 12pt;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    h4 span{
+        font-weight: bold;
+    }
+    p{
+        margin-left: 20px;
+    }
+    
+   .footer-address{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0;
+
+    h6{
+        font-size: 16px;
+    font-weight: 400;
+    }
+    a{
+        color: #DCA10D;
+        font-size: 12pt;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    h4{
+         font-size: 16px;
+    font-weight: 400;
+    margin-left: 100px;
+    }
+   }
+
+   .table-section{
+    margin-right: 100px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    @media screen and (max-width: 992px){
+        display: none;
+    }
+   }
+
+   
+
+}
+
+@media screen and (max-width: 992px){
+    h1,h2,h3,h4,h5,h6,p{
+        font-size: 12px;
+    }
+   }
