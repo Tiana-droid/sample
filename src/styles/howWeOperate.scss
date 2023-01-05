@@ -54,13 +54,14 @@
   position: absolute;
   white-space: nowrap;
   will-change: transform;
-  animation: marquee 15s linear infinite;
+  animation: marquee 25s linear infinite;
   transition: ease-in-out all;
   width: 180%;
   -webkit-transition: ease-in-out all;
   -moz-transition: ease-in-out all;
   -ms-transition: ease-in-out all;
   -o-transition: ease-in-out all;
+  -webkit-animation: marquee 25s linear infinite;
 }
 .track:hover {
   animation-play-state: paused;
@@ -75,7 +76,7 @@
     -moz-transform: translateX(-25%);
     -ms-transform: translateX(-25%);
     -o-transform: translateX(-25%);
-  }
+}
 }
 
 .product-card {
@@ -163,7 +164,7 @@
   .howWeOperateBottomLayer
   .howWeOperateBottomLayerflex
   .stage-container {
-  background-color: red;
+  background-color: black;
   height: 80px;
   width: 80px;
   border-radius: 40px;
@@ -178,6 +179,7 @@
   font-weight: 600;
   font-size: 32px;
   line-height: 48px;
+ 
 }
 
 @keyframes fade {

@@ -124,6 +124,9 @@ p {
     line-height: 36px;
     margin-left: 24px;
   }
+  .heroSectionContainer div:first-child{
+    padding-left: 0;
+  }
   p {
     font-size: 12px;
     line-height: 18px;
@@ -157,10 +160,6 @@ p {
   }
 
   .heroSectionContainer div:nth-child(2) {
-    margin-right: 10px;
-  }
-  input {
-    width: 231px;
-    height: 50px;
+    margin-right: 0px;
   }
 }

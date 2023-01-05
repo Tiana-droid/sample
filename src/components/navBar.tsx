@@ -6,13 +6,10 @@ import Typography from "@mui/material/Typography"
 import Modal from "@mui/material/Modal"
 import { TextField } from "@mui/material"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
-import { HiMenuAlt4, HiX } from "react-icons/hi"
 import { GiHamburgerMenu } from "react-icons/gi"
 import "../styles/navbar.scss"
 import { motion } from "framer-motion"
-import { GrHomeRounded } from "react-icons/gr"
 import { BsPerson } from "react-icons/bs"
 import { BsQuestionLg } from "react-icons/bs"
 import { RiErrorWarningLine, RiHomeLine } from "react-icons/ri"
@@ -242,8 +239,8 @@ const NavBar = (props: Props) => {
                     </Link>
                   </li>
                   <li
-                    className={props.page === "account" ? "active" : "li"}
-                    ref={account}
+                    className={props.page === "shop" ? "active" : "li"}
+                    ref={shop}
                   >
                     <Link to="/privacy">
                       <h6>

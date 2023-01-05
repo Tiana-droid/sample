@@ -1,5 +1,5 @@
 import React from "react"
-import "../styles/footer.css"
+import "../styles/footer.scss"
 import { BiPhoneCall, BiMailSend, BiLocationPlus } from "react-icons/bi"
 import phone from "../assets/Phone.png"
 import location from "../assets/location.png"

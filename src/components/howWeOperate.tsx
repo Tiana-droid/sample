@@ -104,23 +104,23 @@ const HowWeOperate = () => {
                         className="border__stage__description"
                         style={{
                           borderLeft: "2px dashed #000",
-                          height: "13.5%",
+                          height: "11.7%",
                           position: "absolute",
-                          left: "8.5%",
+                          left: "12.7%",
                         }}
                       />
                     )}
-                    {index !== 2 && (
+                    {/* {index !== 2 && (
                       <div
                         className="mobile__border__stage__description"
                         style={{
                           borderLeft: "2px dashed #000",
                           height: "68px",
                           position: "absolute",
-                          left: "11vw",
+                          left: "12.7%",
                         }}
                       />
-                    )}
+                    )} */}
                   </div>
                   <div className="details">
                     <h1>{step.title}</h1>

@@ -19,9 +19,6 @@ const HeroSection = () => {
     setInputValue2(event.target.value)
   }
 
-  // const handleClick = () => {
-  //   Tawk_API.maximize()
-  // }
   const handleSubmit = () => {
     const data = {
       name: inputValue,
@@ -96,10 +93,10 @@ const HeroSection = () => {
           Join our wait-list and enjoy a free delivery <br /> on your first
           order.
         </p>
-        <div>
+        <div style={{ marginLeft: "20px" }}>
           <CustomTextInput
             placeholder="City"
-            width="400"
+            width="330"
             height="52"
             borderColor="#E9E9E9"
             inputValue={inputValue}
@@ -108,7 +105,7 @@ const HeroSection = () => {
           <div style={{ marginTop: "24px" }}>
             <CustomTextInput
               placeholder="Email Address"
-              width="400"
+              width="330"
               height="52"
               borderColor="#E9E9E9"
               inputValue={inputValue2}

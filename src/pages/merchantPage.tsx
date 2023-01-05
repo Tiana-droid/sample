@@ -3,7 +3,7 @@ import Footer from "../components/footer"
 import MerchantBottomPanel from "../components/MerchantBottomPanel"
 import MerchantTopPanel from "../components/MerchantTopPanel"
 import NavBar from "../components/navBar"
-import "../styles/merchantpage.css"
+import "../styles/merchantpage.scss"
 
 const MerchantPage = () => {
   return (

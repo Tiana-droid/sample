@@ -1,7 +1,8 @@
 import React from "react"
-import "../styles/merchantpage.css"
+import "../styles/merchantpage.scss"
 import CustomTextInput from "./CustomTextInput"
 import Checkbox from "@mui/material/Checkbox"
+import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 const MerchantBottomPanel = () => {
   const [active, setActive] = React.useState(false)
   const [name, setName] = React.useState("")
@@ -10,6 +11,26 @@ const MerchantBottomPanel = () => {
     target: { value: React.SetStateAction<string> }
   }) {
     setName(event.target.value)
+  }
+  const [expanded2, setExpanded2] = React.useState(true)
+  const [isMobile, setIsMobile] = React.useState(false)
+
+  //choose the screen size
+  const handleResize = () => {
+    if (window.innerWidth < 910) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }
+
+  // create an event listener
+  React.useEffect(() => {
+    window.addEventListener("resize", handleResize)
+  })
+
+  const expand = () => {
+    setExpanded2(!expanded2)
   }
 
   const label = { inputProps: { "aria-label": "Checkbox demo" } }
@@ -28,18 +49,40 @@ const MerchantBottomPanel = () => {
             Powerful and easy to use state-of-art inventory management software
           </li>
           <li>Free in-store product photography</li>
-          <li>Free online store set up on our mobile app</li>
-          <li>Free order system integration</li>
-          <li>Free online marketing promotion</li>
-          <li>
-            Responsive delivery drivers committed to excellent customer service.
-          </li>
+
+          {!expanded2 && (
+            <>
+              <li>Free online store set up on our mobile app</li>
+              <li>Free order system integration</li>
+              <li>Free online marketing promotion</li>
+              <li>
+                Responsive delivery drivers committed to excellent customer
+                service.
+              </li>
+            </>
+          )}
+
+          {!isMobile && (
+            <>
+              <li>Free online store set up on our mobile app</li>
+              <li>Free order system integration</li>
+              <li>Free online marketing promotion</li>
+              <li>
+                Responsive delivery drivers committed to excellent customer
+                service.
+              </li>
+            </>
+          )}
         </ul>
         <h5>
           Take charge of your store, manage your products like a pro and reach
           more customers online. What are your waiting for? Simply fill out the
           form and become a member of our dedicated business.
         </h5>
+        <button onClick={expand}>
+          {expanded2 ? "Read More" : "Show Less"}{" "}
+          {expanded2 ? <FiChevronUp /> : <FiChevronDown />}
+        </button>
       </div>
       <div className="bottompanel-right">
         <h3>Sign up to create an online store</h3>
@@ -62,7 +105,7 @@ const MerchantBottomPanel = () => {
                 handleChange={handleChange}
               />
             </div>
-            <div>
+            <div style={{ marginBottom: "20px" }}>
               <CustomTextInput
                 placeholder="Title"
                 width="330"
