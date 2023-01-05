@@ -3,10 +3,60 @@ import "../styles/merchantpage.scss"
 import CustomTextInput from "./CustomTextInput"
 import Checkbox from "@mui/material/Checkbox"
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
+import { Renderable, Toast, toast, ValueFunction } from "react-hot-toast"
+import axios from "axios"
 const MerchantBottomPanel = () => {
   const [active, setActive] = React.useState(false)
   const [name, setName] = React.useState("")
   const [checked, setChecked] = React.useState(false)
+  const [fullName, setFullName] = React.useState("")
+  const [title, setTitle] = React.useState("")
+  const [email, setEmail] = React.useState("")
+  const [phone, setPhone] = React.useState("")
+  const [storeAddress, setStoreAddress] = React.useState("")
+  const [businessEmail, setBusinessEmail] = React.useState("")
+  const [businessPhone, setBusinessPhone] = React.useState("")
+  const [loading, setLoading] = React.useState(false)
+
+  function handleFullName(event: {
+    target: { value: React.SetStateAction<string> }
+  }) {
+    setFullName(event.target.value)
+  }
+
+  function handleTitle(event: {
+    target: { value: React.SetStateAction<string> }
+  }) {
+    setTitle(event.target.value)
+  }
+  function handleEmail(event: {
+    target: { value: React.SetStateAction<string> }
+  }) {
+    setEmail(event.target.value)
+  }
+  function handlePhone(event: {
+    target: { value: React.SetStateAction<string> }
+  }) {
+    setPhone(event.target.value)
+  }
+
+  function handleStoreAddress(event: {
+    target: { value: React.SetStateAction<string> }
+  }) {
+    setStoreAddress(event.target.value)
+  }
+  function handleBusinessEmail(event: {
+    target: { value: React.SetStateAction<string> }
+  }) {
+    setBusinessEmail(event.target.value)
+  }
+
+  function handleBusinessPhone(event: {
+    target: { value: React.SetStateAction<string> }
+  }) {
+    setBusinessPhone(event.target.value)
+  }
+
   function handleChange(event: {
     target: { value: React.SetStateAction<string> }
   }) {
@@ -14,6 +64,93 @@ const MerchantBottomPanel = () => {
   }
   const [expanded2, setExpanded2] = React.useState(true)
   const [isMobile, setIsMobile] = React.useState(false)
+
+  const handleSubmit = () => {
+    setLoading(true) //
+    const data = {
+      fullName,
+      title,
+      email,
+      phone,
+      storeAddress,
+      businessEmail,
+      businessPhone,
+    }
+    console.log(data)
+    if (
+      fullName === "" ||
+      title === "" ||
+      email === "" ||
+      phone === "" ||
+      storeAddress === "" ||
+      businessPhone === "" ||
+      businessEmail === ""
+    ) {
+      toast.error("Enter all required fields", {
+        position: "top-right",
+        style: {
+          width: "600",
+          height: "100px",
+          backgroundColor: "#fff",
+          color: "#61181E",
+          fontSize: 18,
+          fontWeight: "bold",
+        },
+      })
+    } else {
+      axios
+        .post(
+          "https://city-xplorer-api.herokuapp.com/api/v1/merchant/merchant-intent",
+          data
+        )
+        .then(
+          (response: {
+            data: { message: Renderable | ValueFunction<Renderable, Toast> }
+          }) => {
+            if (response.data.message === "Successful") {
+              toast.success(response.data.message, {
+                position: "top-right",
+                style: {
+                  width: "320px",
+                  height: "100px",
+                  backgroundColor: "#fff",
+                  color: "#61181E",
+                  fontSize: 18,
+                  fontWeight: "bold",
+                },
+                icon: "👏",
+                duration: 3000,
+                iconTheme: {
+                  primary: "#000",
+                  secondary: "#61181E",
+                },
+              })
+            }
+          }
+        )
+        .catch((error) => {
+          toast.error(error.message, {
+            position: "top-right",
+            style: {
+              width: "600",
+              height: "100px",
+              backgroundColor: "#fff",
+              color: "#61181E",
+              fontSize: 18,
+              fontWeight: "bold",
+            },
+          })
+        })
+    }
+    setLoading(false)
+    setFullName("")
+    setTitle("")
+    setEmail("")
+    setPhone("")
+    setStoreAddress("")
+    setBusinessEmail("")
+    setBusinessPhone("")
+  }
 
   //choose the screen size
   const handleResize = () => {
@@ -93,7 +230,7 @@ const MerchantBottomPanel = () => {
         <div className="form-container">
           <h6>Personal Information</h6>
           <div className="form-top">
-            <div>
+            <div style={{ marginBottom: "20px" }}>
               <CustomTextInput
                 placeholder="Name"
                 width="330"
@@ -101,8 +238,8 @@ const MerchantBottomPanel = () => {
                 borderColor={
                   active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
                 }
-                inputValue={name}
-                handleChange={handleChange}
+                inputValue={fullName}
+                handleChange={handleFullName}
               />
             </div>
             <div style={{ marginBottom: "20px" }}>
@@ -113,8 +250,8 @@ const MerchantBottomPanel = () => {
                 borderColor={
                   active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
                 }
-                inputValue={name}
-                handleChange={handleChange}
+                inputValue={title}
+                handleChange={handleTitle}
               />
             </div>
           </div>
@@ -127,8 +264,8 @@ const MerchantBottomPanel = () => {
                 borderColor={
                   active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
                 }
-                inputValue={name}
-                handleChange={handleChange}
+                inputValue={phone}
+                handleChange={handlePhone}
               />
             </div>
             <div>
@@ -139,8 +276,8 @@ const MerchantBottomPanel = () => {
                 borderColor={
                   active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
                 }
-                inputValue={name}
-                handleChange={handleChange}
+                inputValue={email}
+                handleChange={handleEmail}
               />
             </div>
           </div>
@@ -148,27 +285,27 @@ const MerchantBottomPanel = () => {
 
           <div style={{ marginTop: "24px", marginBottom: "24px" }}>
             <CustomTextInput
-              placeholder="Email address"
-              width="330"
+              placeholder="Business Email address"
+              width={isMobile ? "330" : "680"}
               height="52"
               borderColor={
                 active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
               }
-              inputValue={name}
-              handleChange={handleChange}
+              inputValue={businessEmail}
+              handleChange={handleBusinessEmail}
             />
           </div>
 
           <div style={{ marginTop: "24px", marginBottom: "24px" }}>
             <CustomTextInput
               placeholder="Enter store address"
-              width="330"
+              width={isMobile ? "330" : "680"}
               height="52"
               borderColor={
                 active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
               }
-              inputValue={name}
-              handleChange={handleChange}
+              inputValue={storeAddress}
+              handleChange={handleStoreAddress}
             />
           </div>
 
@@ -176,25 +313,13 @@ const MerchantBottomPanel = () => {
             <div>
               <CustomTextInput
                 placeholder="Phone number"
-                width="330"
+                width={isMobile ? "330" : "680"}
                 height="52"
                 borderColor={
                   active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
                 }
-                inputValue={name}
-                handleChange={handleChange}
-              />
-            </div>
-            <div>
-              <CustomTextInput
-                placeholder="Email address"
-                width="330"
-                height="52"
-                borderColor={
-                  active ? "rgba(251, 223, 195, 1)" : "rgba(233, 233, 233, 1)"
-                }
-                inputValue={name}
-                handleChange={handleChange}
+                inputValue={businessPhone}
+                handleChange={handleBusinessPhone}
               />
             </div>
           </div>
@@ -203,7 +328,22 @@ const MerchantBottomPanel = () => {
             <p>I agree to the terms of service & privacy policy.</p>
           </div>
           <div className="buttonContainer">
-            <button>Submit</button>
+            <button onClick={handleSubmit}>
+              {loading ? (
+                <div className="lds-roller">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              ) : (
+                "Submit"
+              )}
+            </button>
           </div>
         </div>
       </div>
