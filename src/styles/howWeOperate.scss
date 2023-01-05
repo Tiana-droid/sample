@@ -182,22 +182,54 @@
  
 }
 
-@keyframes fade {
-  from {
+@keyframes fadeinRight {
+  0% {
+    transform: translateX(300px);
     opacity: 0;
   }
-  to {
+  100% {
     opacity: 1;
   }
 }
-.carousel img {
+
+.slideshow {
+  overflow: hidden;
+  transition: ease 1000ms;
+}
+  
+
+.slideshow img {
   width: 476px;
   height: 541px;
-  transition: all 1s ease-in-out;
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -ms-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
+  animation: fadeinRight 0.5s ease-in-out;
+  -webkit-animation: fadeinRight 0.5s ease-in-out;
+}
+
+.slideshow-enter {
+  opacity: 0;
+  transition: opacity 5s;
+}
+
+.slideshow-enter-active {
+  opacity: 1;
+  transition: opacity 5s;
+  -webkit-transition: opacity 5s;
+  -moz-transition: opacity 5s;
+  -ms-transition: opacity 5s;
+  -o-transition: opacity 5s;
+}
+
+.slideshow-exit {
+  opacity: 1;
+}
+
+.slideshow-exit-active {
+  opacity: 0;
+  transition: opacity 5s;
+  -webkit-transition: opacity 5s;
+  -moz-transition: opacity 5s;
+  -ms-transition: opacity 5s;
+  -o-transition: opacity 5s;
 }
 .stages-description {
   display: flex;
@@ -341,3 +373,4 @@
     top: 120px;
   }
 }
+
