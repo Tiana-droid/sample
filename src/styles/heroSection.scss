@@ -110,6 +110,10 @@ p {
 }
 
 @media (max-width: 970px) {
+  .heroSectionContainer div:first-child button {
+    font-size:12px;
+    font-weight: 500;
+  }
   .heroSectionContainer {
     flex-direction: column;
   }
