@@ -136,7 +136,7 @@ const NavBar = (props: Props) => {
           setEmail("")
         })
         .catch((error) => {
-          toast.error("You are already on the waitlist", {
+          toast.error(error.message, {
             position: "top-right",
             style: {
               width: "600",
