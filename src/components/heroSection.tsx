@@ -29,7 +29,7 @@ const HeroSection = () => {
         position: "top-right",
         style: {
           width: "600",
-          height: "100px",
+          height: "60px",
           backgroundColor: "#fff",
           color: "#61181E",
           fontSize: 18,
@@ -37,48 +37,47 @@ const HeroSection = () => {
         },
       })
     } else {
-      await axios
-        .post(
-          "https://city-xplorer-api.herokuapp.com/api/v1/waitlist/join-waitlist",
-          data
-        )
-        .then((response) => {
-          if (
-            response.data.message ===
-            "Congratulations, you have been added to our waitlist"
-          ) {
-            toast.success(response.data.message, {
-              position: "top-right",
-              style: {
-                width: "320px",
-                height: "100px",
-                backgroundColor: "#fff",
-                color: "#61181E",
-                fontSize: 18,
-                fontWeight: "bold",
-              },
-              icon: "👏",
-              duration: 3000,
-              iconTheme: {
-                primary: "#000",
-                secondary: "#61181E",
-              },
-            })
-          }
+      try {
+        const res = await axios({
+          url: "https://city-xplorer-api.herokuapp.com/api/v1/waitlist/join-waitlist",
+          method: "POST",
+          data: data,
         })
-        .catch((error) => {
-          toast.error("You are already on the waitlist", {
+        if (
+          res.data.message ===
+          "Congratulations, you have been added to our waitlist"
+        ) {
+          toast.success(res.data.message, {
             position: "top-right",
             style: {
-              width: "600",
-              height: "100px",
+              width: "320px",
+              height: "60px",
               backgroundColor: "#fff",
               color: "#61181E",
               fontSize: 18,
               fontWeight: "bold",
             },
+            icon: "👏",
+            duration: 3000,
+            iconTheme: {
+              primary: "#000",
+              secondary: "#61181E",
+            },
           })
+        }
+      } catch (error: any) {
+        toast.error("You are already on the waitlist", {
+          position: "top-right",
+          style: {
+            width: "600",
+            height: "60px",
+            backgroundColor: "#fff",
+            color: "#61181E",
+            fontSize: 18,
+            fontWeight: "bold",
+          },
         })
+      }
     }
     setInputValue("")
     setInputValue2("")

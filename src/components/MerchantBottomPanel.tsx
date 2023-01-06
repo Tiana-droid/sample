@@ -90,7 +90,7 @@ const MerchantBottomPanel = () => {
         position: "top-right",
         style: {
           width: "600",
-          height: "100px",
+          height: "60px",
           backgroundColor: "#fff",
           color: "#61181E",
           fontSize: 18,
@@ -112,7 +112,7 @@ const MerchantBottomPanel = () => {
                 position: "top-right",
                 style: {
                   width: "320px",
-                  height: "100px",
+                  height: "60px",
                   backgroundColor: "#fff",
                   color: "#61181E",
                   fontSize: 18,
@@ -133,7 +133,7 @@ const MerchantBottomPanel = () => {
             position: "top-right",
             style: {
               width: "600",
-              height: "100px",
+              height: "60px",
               backgroundColor: "#fff",
               color: "#61181E",
               fontSize: 18,

@@ -94,8 +94,8 @@ const NavBar = (props: Props) => {
     p: 4,
   }
   const handleSubmit = async () => {
-    const data = { name, email, city }
-    if (city === "" || email === "") {
+    const data = { name: name, email: email, city: city }
+    if (city === "" || email === "" || name === "") {
       toast.error("Enter all required fields", {
         position: "top-right",
         style: {
@@ -108,17 +108,18 @@ const NavBar = (props: Props) => {
         },
       })
     } else {
-      await axios
-        .post(
-          "https://city-xplorer-api.herokuapp.com/api/v1/suggestion/suggest-store",
-          data
-        )
-        .then((response) => {
-          toast.success(response.data.message, {
+      try {
+        const res = await axios({
+          url: "https://city-xplorer-api.herokuapp.com/api/v1/suggestion/suggest-store",
+          method: "POST",
+          data: data,
+        })
+        if (res.data.message === "Suggestion recieved") {
+          toast.success(res.data.message, {
             position: "top-right",
             style: {
               width: "320px",
-              height: "100px",
+              height: "60px",
               backgroundColor: "#fff",
               color: "#61181E",
               fontSize: 18,
@@ -131,24 +132,24 @@ const NavBar = (props: Props) => {
               secondary: "#61181E",
             },
           })
-          setOpen(false)
-          setName("")
-          setCity("")
-          setEmail("")
+        }
+      } catch (error: any) {
+        toast.error(error.message, {
+          position: "top-right",
+          style: {
+            width: "600",
+            height: "60px",
+            backgroundColor: "#fff",
+            color: "#61181E",
+            fontSize: 18,
+            fontWeight: "bold",
+          },
         })
-        .catch((error) => {
-          toast.error(error.message, {
-            position: "top-right",
-            style: {
-              width: "600",
-              height: "100px",
-              backgroundColor: "#fff",
-              color: "#61181E",
-              fontSize: 18,
-              fontWeight: "bold",
-            },
-          })
-        })
+      }
+      setOpen(false)
+      setName("")
+      setCity("")
+      setEmail("")
     }
   }
 

@@ -8,6 +8,7 @@ import masterCard from "../assets/mastercard.png"
 import visa from "../assets/visa.png"
 import payPal from "../assets/paypal.png"
 import stripe from "../assets/stripe.png"
+import tradex from "../assets/4tradex.jpeg"
 import { Link } from "react-router-dom"
 const Footer = () => {
   return (
@@ -60,6 +61,7 @@ const Footer = () => {
             <img src={visa} alt="visa" />
             <img src={payPal} alt="payPal" />
             <img src={stripe} alt="stripe" />
+            <img src={tradex} alt="stripe" />
           </div>
         </div>
         <div>
