@@ -1,30 +1,43 @@
 .privacy-container{
     margin: 0;
     padding: 0;
+    
 
     .privacy-heading{
         color: black;
-        font-size: 24px;
-        font-weight: bold;
+        font-size: 32px;
+        font-weight: 100;
         text-align: center;
+        font-family: 'Montserrat', sans-serif;
+
+
     }.privacy-sub-heading{
         color: black;
         font-size: 16px;
         font-weight: 400;
+        margin: 10px 20px;
+        text-align: justify;
         
+    }
+
+    ol{
+        margin-left: 50px;
+        margin-right: 50px;
     }
     ol li{
         list-style-type: decimal;
-        margin-left: 50px;
+        
+        margin-top: 10px;
         font-weight: bold;
         font-size: 22px;
+        text-align: justify;
     }
 
     ol li h6{
         font-size: 16px;
         font-weight: 400;
         margin: 10px 0;
-        margin-left: -20px;
+        margin-top: 20px;
     }
 
     ol li h6 span{
@@ -42,11 +55,12 @@
     ol h5{
         font-size: 12pt;
         font-weight: 400;
+        margin-top: 10px;
     }
     ol h5 span{
         font-weight: bold;
     }
-    h3, h4{
+ h3, h4{
         margin-left: -80px;
         font-weight: 400;
         font-size: 16px;
@@ -110,5 +124,13 @@
 @media screen and (max-width: 992px){
     h1,h2,h3,h4,h5,h6,p{
         font-size: 12px;
+    }
+    .privacy-heading{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .privacy-sub-heading{
+        margin-left: 0;
+        margin-right: 0;
     }
    }

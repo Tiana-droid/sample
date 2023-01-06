@@ -93,7 +93,8 @@ const NavBar = (props: Props) => {
     boxShadow: 24,
     p: 4,
   }
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    const data = { name, email, city }
     if (city === "" || email === "") {
       toast.error("Enter all required fields", {
         position: "top-right",
@@ -107,10 +108,10 @@ const NavBar = (props: Props) => {
         },
       })
     } else {
-      axios
+      await axios
         .post(
           "https://city-xplorer-api.herokuapp.com/api/v1/suggestion/suggest-store",
-          { name, email, city }
+          data
         )
         .then((response) => {
           toast.success(response.data.message, {
@@ -175,12 +176,7 @@ const NavBar = (props: Props) => {
             >
               <Link to="/merchant">Merchants</Link>
             </li>
-            <li
-              className={props.page === "shop" ? "active" : "li"}
-              ref={account}
-            >
-              <Link to="/privacy">Privacy</Link>
-            </li>
+
             <li
               className={props.page === "category" ? "active" : "li"}
               ref={category}
@@ -238,17 +234,7 @@ const NavBar = (props: Props) => {
                       <h6> Merchants</h6>
                     </Link>
                   </li>
-                  <li
-                    className={props.page === "shop" ? "active" : "li"}
-                    ref={shop}
-                  >
-                    <Link to="/privacy">
-                      <h6>
-                        <MdPrivacyTip />
-                      </h6>
-                      <h6> Privacy</h6>
-                    </Link>
-                  </li>
+
                   <li className={props.page === "home" ? "active" : "li"}>
                     <a href={`#faqs`} onClick={() => setToggle(false)}>
                       <h6>

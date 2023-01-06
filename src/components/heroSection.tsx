@@ -19,7 +19,7 @@ const HeroSection = () => {
     setInputValue2(event.target.value)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const data = {
       name: inputValue,
       email: inputValue2,
@@ -37,13 +37,10 @@ const HeroSection = () => {
         },
       })
     } else {
-      axios
+      await axios
         .post(
           "https://city-xplorer-api.herokuapp.com/api/v1/waitlist/join-waitlist",
-          {
-            name: inputValue,
-            email: inputValue2,
-          }
+          data
         )
         .then((response) => {
           if (
@@ -83,6 +80,8 @@ const HeroSection = () => {
           })
         })
     }
+    setInputValue("")
+    setInputValue2("")
   }
   return (
     <div className="heroSectionContainer">

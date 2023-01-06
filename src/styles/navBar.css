@@ -13,9 +13,9 @@
   background-color: rgba(255, 255, 255, 0.98);
 }
 .navBarContainer .bottomNav img {
-  width: 150px;
+  width: 300px;
   height: 8vh;
-  object-fit: fill;
+  object-fit: scale-down;
   cursor: pointer;
   margin-left: 119px;
 }
