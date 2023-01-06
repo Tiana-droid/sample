@@ -65,17 +65,20 @@ const MerchantBottomPanel = () => {
   const [expanded2, setExpanded2] = React.useState(true)
   const [isMobile, setIsMobile] = React.useState(false)
 
-  const handleSubmit = () => {
+  const data = {
+    fullName,
+    title,
+    email,
+    phone,
+    storeAddress,
+    businessEmail,
+    businessPhone,
+  }
+
+  console.log(data)
+  const handleSubmit = async () => {
     setLoading(true) //
-    const data = {
-      fullName,
-      title,
-      email,
-      phone,
-      storeAddress,
-      businessEmail,
-      businessPhone,
-    }
+
     console.log(data)
     if (
       fullName === "" ||
@@ -98,49 +101,44 @@ const MerchantBottomPanel = () => {
         },
       })
     } else {
-      axios
-        .post(
-          "https://city-xplorer-api.herokuapp.com/api/v1/merchant/merchant-intent",
-          data
-        )
-        .then(
-          (response: {
-            data: { message: Renderable | ValueFunction<Renderable, Toast> }
-          }) => {
-            if (response.data.message === "Successful") {
-              toast.success(response.data.message, {
-                position: "top-right",
-                style: {
-                  width: "320px",
-                  height: "60px",
-                  backgroundColor: "#fff",
-                  color: "#61181E",
-                  fontSize: 18,
-                  fontWeight: "bold",
-                },
-                icon: "👏",
-                duration: 3000,
-                iconTheme: {
-                  primary: "#000",
-                  secondary: "#61181E",
-                },
-              })
-            }
-          }
-        )
-        .catch((error) => {
-          toast.error(error.message, {
+      try {
+        const response = await axios({
+          url: "https://city-xplorer-api.herokuapp.com/api/v1/merchant/merchant-intent",
+          method: "POST",
+          data: data,
+        })
+        if (response.data.message === "Successful") {
+          toast.success(response.data.message, {
             position: "top-right",
             style: {
-              width: "600",
+              width: "320px",
               height: "60px",
               backgroundColor: "#fff",
               color: "#61181E",
               fontSize: 18,
               fontWeight: "bold",
             },
+            icon: "👏",
+            duration: 3000,
+            iconTheme: {
+              primary: "#000",
+              secondary: "#61181E",
+            },
           })
+        }
+      } catch (error: any) {
+        toast.error(error.message, {
+          position: "top-right",
+          style: {
+            width: "600",
+            height: "60px",
+            backgroundColor: "#fff",
+            color: "#61181E",
+            fontSize: 18,
+            fontWeight: "bold",
+          },
         })
+      }
     }
     setLoading(false)
     setFullName("")

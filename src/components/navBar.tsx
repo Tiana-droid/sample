@@ -33,9 +33,9 @@ const NavBar = (props: Props) => {
   const [showDiv, setshowDiv] = useState("none")
   const [toggle, setToggle] = useState(false)
 
-  const [name, setName] = React.useState("")
+  const [names, setNames] = React.useState("")
   const [city, setCity] = React.useState("")
-  const [email, setEmail] = React.useState("")
+  const [emails, setEmails] = React.useState("")
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => {
     setOpen(true)
@@ -94,8 +94,8 @@ const NavBar = (props: Props) => {
     p: 4,
   }
   const handleSubmit = async () => {
-    const data = { name: name, email: email, city: city }
-    if (city === "" || email === "" || name === "") {
+    const data = { name: names, email: emails, city: city }
+    if (city === "" || emails === "" || names === "") {
       toast.error("Enter all required fields", {
         position: "top-right",
         style: {
@@ -147,9 +147,9 @@ const NavBar = (props: Props) => {
         })
       }
       setOpen(false)
-      setName("")
+      setNames("")
       setCity("")
-      setEmail("")
+      setEmails("")
     }
   }
 
@@ -280,8 +280,8 @@ const NavBar = (props: Props) => {
             variant="outlined"
             fullWidth
             style={{ marginTop: "32px" }}
-            value={name}
-            onChange={(event) => setName(event.target.value)}
+            value={names}
+            onChange={(event) => setNames(event.target.value)}
           />
           <TextField
             id="outlined-basic"
@@ -298,8 +298,8 @@ const NavBar = (props: Props) => {
             variant="outlined"
             fullWidth
             style={{ marginTop: "32px", marginBottom: "32px" }}
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            value={emails}
+            onChange={(event) => setEmails(event.target.value)}
           />
           <button
             style={{
