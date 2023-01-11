@@ -7,14 +7,14 @@ import NavBar from "../components/navBar"
 
 const LandingPage = () => {
   return (
-    <div>
+    <>
       <NavBar page="home" type="primary" />
       <HeroSection />
       <HowWeOperate />
       <DualShoppingGrocery />
       <DownloadSection />
       <Footer />
-    </div>
+    </>
   )
 }
 

@@ -302,6 +302,7 @@ const NavBar = (props: Props) => {
             onChange={(event) => setEmails(event.target.value)}
           />
           <button
+            type="button"
             style={{
               width: "235px",
               height: "50px",

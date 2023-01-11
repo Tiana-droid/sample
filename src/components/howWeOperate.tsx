@@ -37,6 +37,8 @@ const products = [
   { _id: 16, image: img17 },
 ]
 
+const data = [1, 2, 3, 4]
+
 const steps = [
   {
     step: "1",
@@ -94,33 +96,24 @@ const HowWeOperate = () => {
           <div className="howWeOperateBottomLayerflex">
             <div className="stages-description">
               {steps.map((step, index) => (
-                <div key={step.step} className="flex">
+                <div key={step.step} className="stage-flex">
                   <div className="stage">
                     <div className="stage-container">
                       <h6 style={{ position: "relative" }}>{step.step}</h6>
+                      {index !== 2 &&
+                        data.map((item) => (
+                          <div
+                            key={item}
+                            style={{
+                              width: "2px",
+                              height: "15px",
+                              backgroundColor: "black",
+                              marginBottom: "10px",
+                              marginTop: "10px",
+                            }}
+                          />
+                        ))}
                     </div>
-                    {index !== 2 && (
-                      <div
-                        className="border__stage__description"
-                        style={{
-                          borderLeft: "2px dashed #000",
-                          height: "11.7%",
-                          position: "absolute",
-                          left: "12.7%",
-                        }}
-                      />
-                    )}
-                    {/* {index !== 2 && (
-                      <div
-                        className="mobile__border__stage__description"
-                        style={{
-                          borderLeft: "2px dashed #000",
-                          height: "68px",
-                          position: "absolute",
-                          left: "12.7%",
-                        }}
-                      />
-                    )} */}
                   </div>
                   <div className="details">
                     <h1>{step.title}</h1>

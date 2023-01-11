@@ -1,8 +1,6 @@
 import React from "react"
 import "../styles/footer.scss"
-import { BiPhoneCall, BiMailSend, BiLocationPlus } from "react-icons/bi"
 import phone from "../assets/Phone.png"
-import location from "../assets/location.png"
 import mail from "../assets/mail.png"
 import masterCard from "../assets/mastercard.png"
 import visa from "../assets/visa.png"

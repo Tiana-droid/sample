@@ -3,24 +3,28 @@
   margin-left: 62px;
   margin-top: 80px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 159px;
   gap: 61px;
   margin-right: 59px;
 }
 
 .topPanelContainer .topPanelRight img {
-  height: 518px;
-  width: 671px;
-
+  height: 85vh;
+  width: 100vw;
   object-fit: fill;
   position: relative;
+
+  @media screen and (min-width: 1440px) {
+    height: 90vh;
+  }
 }
 
-.topPanelContainer .topPanelRight {
-  flex: 55%;
-}
+// .topPanelContainer .topPanelRight {
+//   flex: 55%;
+// }
 .flex {
   display: flex;
   align-items: center;
@@ -30,7 +34,7 @@
   max-width: 35vw;
   background-color: rgba(255, 255, 255, 0.98);
   z-index: 99;
-  max-height: 180px;
+  height: fit-content;
   position: absolute;
   top: 400px;
   left: 369px;
@@ -282,7 +286,7 @@
     margin-right: 0;
     margin-left: 0;
     margin-bottom: 0;
-    margin-top: 0;
+    margin-top: 30px;
   }
   .topPanelContainer .topPanelLeft h1 {
     font-size: 24px;
@@ -322,8 +326,8 @@
 }
 @media screen and (max-width: 900px) {
   .topPanelContainer .topPanelRight img {
-    width: 80vw;
-    height: 220px;
+    width: 100vw;
+    height: 500px;
     object-fit: fill;
     position: relative;
     margin: 0;
@@ -333,8 +337,6 @@
   .topPanelContainer .topPanelRight .topPanelCard {
     width: 220px;
     margin-left: 70px;
-    height: 63px;
-    
   }
   .topPanelContainer .topPanelRight .topPanelCard .card-top-second {
     display: none;

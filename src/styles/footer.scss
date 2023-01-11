@@ -1,14 +1,18 @@
 .footerContainer {
-  min-height: 50vh;
+  height: fit-content;
   width: 100%;
+  margin-bottom: 0;
+  
 }
 
 .footerContainer section {
   width: 100%;
   padding: 38px 40px;
   background-color: #1b1c1e;
-  min-height: 50vh;
-  display: flex;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2em;
   justify-content: space-between;
   color: var(--white);
 }
@@ -28,6 +32,7 @@
 .payment-method img {
   width: 90px;
   height: 54px;
+  margin-top: 20px;
   margin-right: 32px;
 }
 
@@ -46,9 +51,12 @@
 }
 
 @media (max-width: 970px) {
+  .footerContainer{
+    margin-bottom: 0;
+  }
   .payment-method img {
-    width: 28px;
-    height: 16px;
+    width: 123px;
+    height: 61px;
   }
   .footerContainer section {
     padding: 24px;
@@ -66,8 +74,8 @@
 
 @media (max-width: 951px) {
   .payment-method img {
-    width: 28px;
-    height: 16px;
+    width: 139px;
+    height: 61px;
   }
   .footerContainer section {
     padding: 24px;

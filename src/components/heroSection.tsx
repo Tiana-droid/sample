@@ -66,7 +66,7 @@ const HeroSection = () => {
           })
         }
       } catch (error: any) {
-        toast.error("You are already on the waitlist", {
+        toast.error(error.message, {
           position: "top-right",
           style: {
             width: "600",
@@ -84,7 +84,7 @@ const HeroSection = () => {
   }
   return (
     <div className="heroSectionContainer">
-      <div>
+      <div className="content">
         <h2>COMING SOON!!!</h2>
         <h1>Be the first to order your African food when we launch...</h1>
         <p>
@@ -94,27 +94,29 @@ const HeroSection = () => {
         <div style={{ marginLeft: "20px" }}>
           <CustomTextInput
             placeholder="City"
-            width="330"
+            width="200"
             height="52"
             borderColor="#E9E9E9"
             inputValue={inputValue}
             handleChange={handleChange}
           />
-          <div style={{ marginTop: "24px" }}>
+          <div className="input" style={{ marginTop: "24px" }}>
             <CustomTextInput
               placeholder="Email Address"
-              width="330"
+              width="200"
               height="52"
               borderColor="#E9E9E9"
               inputValue={inputValue2}
               handleChange={handleChange2}
             />
-            <button onClick={handleSubmit}>Join Waitlist</button>
+            <button type="button" onClick={handleSubmit}>
+              Join Waitlist
+            </button>
           </div>
         </div>
       </div>
-      <div className="down-container">
-        <img src={require("../assets/hero image.png")} alt="Food" />
+      <div className="down-container" >
+        <img src={require("../assets/heroimage.png")} alt="Food" />
         {/* <div className="chatbot-container" onClick={handleClick}>
           <img src={require("../assets/Chatbot.png")} alt="chat" />
         </div> */}

@@ -100,46 +100,46 @@ const MerchantBottomPanel = () => {
           fontWeight: "bold",
         },
       })
-    } else {
-      try {
-        const response = await axios({
-          url: "https://city-xplorer-api.herokuapp.com/api/v1/merchant/merchant-intent",
-          method: "POST",
-          data: data,
-        })
-        if (response.data.message === "Successful") {
-          toast.success(response.data.message, {
-            position: "top-right",
-            style: {
-              width: "320px",
-              height: "60px",
-              backgroundColor: "#fff",
-              color: "#61181E",
-              fontSize: 18,
-              fontWeight: "bold",
-            },
-            icon: "👏",
-            duration: 3000,
-            iconTheme: {
-              primary: "#000",
-              secondary: "#61181E",
-            },
-          })
-        }
-      } catch (error: any) {
-        toast.error(error.message, {
+    }
+    try {
+      const response = await axios({
+        url: "https://city-xplorer-api.herokuapp.com/api/v1/merchant/merchant-intent",
+        method: "POST",
+        data: data,
+      })
+      if (response.data.message === "Successful") {
+        toast.success(response.data.message, {
           position: "top-right",
           style: {
-            width: "600",
+            width: "320px",
             height: "60px",
             backgroundColor: "#fff",
             color: "#61181E",
             fontSize: 18,
             fontWeight: "bold",
           },
+          icon: "👏",
+          duration: 3000,
+          iconTheme: {
+            primary: "#000",
+            secondary: "#61181E",
+          },
         })
       }
+    } catch (error: any) {
+      toast.error(error.message, {
+        position: "top-right",
+        style: {
+          width: "600",
+          height: "60px",
+          backgroundColor: "#fff",
+          color: "#61181E",
+          fontSize: 18,
+          fontWeight: "bold",
+        },
+      })
     }
+
     setLoading(false)
     setFullName("")
     setTitle("")
@@ -176,7 +176,7 @@ const MerchantBottomPanel = () => {
   }
   return (
     <div className="topPanelContainer">
-      <div className="bottompanel-left">
+      <div className="bottompanel-left" style={{marginBottom: '30px'}}>
         <h2>Get Started Today!</h2>
         <h3>Take advantage of our inventory management software:</h3>
         <ul>
@@ -326,21 +326,8 @@ const MerchantBottomPanel = () => {
             <p>I agree to the terms of service & privacy policy.</p>
           </div>
           <div className="buttonContainer">
-            <button onClick={handleSubmit}>
-              {loading ? (
-                <div className="lds-roller">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-              ) : (
-                "Submit"
-              )}
+            <button type="button" onClick={handleSubmit}>
+              Submit
             </button>
           </div>
         </div>
